@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:background="@color/blue2"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray1"
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp"
+        android:text="Fragmento de cadastro de usuário"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/select_edit_nome_input"
+        style="@style/Theme.MyIPOApp.FormEditTextInput"
+        app:hintEnabled="false"
+        app:layout_constraintBottom_toTopOf="@+id/select_name_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_edit_nome"
+            style="@style/Theme.MyIPOApp.FormEditText"
+            android:autofillHints="@null"
+            android:hint="@string/name"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</LinearLayout>
