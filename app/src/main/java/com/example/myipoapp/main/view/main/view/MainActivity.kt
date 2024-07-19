@@ -1,4 +1,4 @@
-package com.example.myipoapp.main.view
+package com.example.myipoapp.main.view.main.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
