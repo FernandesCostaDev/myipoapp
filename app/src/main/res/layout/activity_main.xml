@@ -3,36 +3,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/white"
+    android:background="@color/blue2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main.view.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/txt_ipo"
+        android:textColor="@color/gray1"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="@null"
         android:src="@drawable/brasao_bombeiro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/select_name_input"
-        style="@style/AutoTextViewForm"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="390dp"
+        android:layout_height="150dp"
+        android:background="@drawable/base_background"
+        android:elevation="5dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/main_bottom_vav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <AutoCompleteTextView
-            android:id="@+id/select_name_complete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/select" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/select_name_input"
+            style="@style/AutoTextViewForm"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+            <AutoCompleteTextView
+                android:id="@+id/select_name_complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/select" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
 
 
     <!--<com.google.android.material.textfield.TextInputLayout
@@ -53,6 +83,20 @@
     </com.google.android.material.textfield.TextInputLayout>-->
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/txt_registe"
+        android:textColor="@color/gray1"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
     <Button
         android:id="@+id/button"
         style="@style/Theme.MyIPOApp.Button"
@@ -66,9 +110,10 @@
         android:id="@+id/main_bottom_vav"
         android:background="@color/gray1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         app:backgroundTint="@color/blue2"
         app:itemIconTint="@color/gray2"
+        app:itemTextColor="@color/white"
         app:menu="@menu/menu_bottom_nav"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

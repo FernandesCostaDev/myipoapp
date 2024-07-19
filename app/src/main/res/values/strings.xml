@@ -4,4 +4,8 @@
     <string name="name">Digite seu nome</string>
     <string name="add_user">Adicionar Usuário</string>
     <string name="del_user">Excluir Usuário</string>
+    <string name="home">Home</string>
+    <string name="txt_ipo">INFORME PADRÃO DE OCORRÊNCIAS</string>
+    <string name="txt_registe">Caso seu nome não esteja na lista acima, clique em <b>adicionar usuário</b> para fazer o cadastro.</string>
+
 </resources>
