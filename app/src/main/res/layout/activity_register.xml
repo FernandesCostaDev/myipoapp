@@ -11,7 +11,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_delete_user_user"
+        tools:layout="@layout/fragment_delete_user"
         android:name="com.example.myipoapp.main.view.register.view.DeleteUserFragment"/>
 
 
