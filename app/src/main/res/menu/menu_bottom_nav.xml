@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/menu_bottom_home"
-        android:icon="@drawable/ic_insta_home"
+        android:icon="@drawable/baseline_home_24"
         android:title="@string/home"/>
 
     <item android:id="@+id/menu_bottom_userAdd"
