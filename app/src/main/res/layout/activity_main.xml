@@ -30,7 +30,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemIconSize="30dp"
+        app:itemIconSize="26dp"
         app:itemActiveIndicatorStyle="@style/Theme.MyIPOApp.Indicator"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
