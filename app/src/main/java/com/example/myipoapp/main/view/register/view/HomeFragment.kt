@@ -1,6 +1,8 @@
 package com.example.myipoapp.main.view.register.view
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -8,26 +10,51 @@ import androidx.fragment.app.Fragment
 import com.example.myipoapp.R
 import com.example.myipoapp.databinding.FragmentHomeBinding
 import com.example.myipoapp.main.view.common.util.TxtWatcher
+import com.example.myipoapp.main.view.database.App
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private var binding: FragmentHomeBinding? = null
+    private lateinit var list: MutableList<String>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
 
-       with(binding!!) {
-           val listName = resources.getStringArray(R.array.testeName)
-           val adapterName = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, listName)
-           selectNameComplete.setAdapter(adapterName)
+        list = mutableListOf<String>()
 
-          selectNameComplete.addTextChangedListener (watcher)
+        binding?.let { it ->
+            with(it) {
+                Thread {
+                    val app = requireActivity().application as App.App
+                    val dao = app.db.userDao()
+                    val result = dao.query()
+                    val name = result.map {
+                        it.fireman
+                    }
+                    requireActivity().runOnUiThread {
+                        list.addAll(name)
+                        val adapter =
+                            ArrayAdapter(
+                                requireContext(),
+                                android.R.layout.simple_list_item_1,
+                                list
+                            )
+                        selectNameComplete.setAdapter(adapter)
+                    }
+                }.start()
+            }
+        }
+    }
 
-           selectStartButton.setOnClickListener {
-               Toast.makeText(requireContext(), "Partiu criar formulário!", Toast.LENGTH_SHORT).show()
-           }
-       }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_options, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     private val watcher = TxtWatcher{

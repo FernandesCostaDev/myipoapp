@@ -1,11 +1,24 @@
 <resources>
     <string name="app_name">My IPO App</string>
-    <string name="select">Selecione seu nome</string>
+    <string name="txt_ipo2">Informe Padrão de Ocorrências</string>
+
+
     <string name="name">Digite seu nome</string>
     <string name="add_user">Adicionar Usuário</string>
     <string name="del_user">Excluir Usuário</string>
     <string name="home">Home</string>
-    <string name="txt_ipo">INFORME PADRÃO DE OCORRÊNCIAS</string>
-    <string name="txt_registe">Caso seu nome não esteja na lista acima, clique em <b>adicionar usuário</b> para fazer o cadastro.</string>
+
+    <string name="home_txt_addUser">Caso seu nome não esteja na lista acima, clique em <b><font color="#FFFFC107">adicionar usuário</font></b> para fazer o cadastro.</string>
+    <string name="sair">Sair</string>
+
+
+    <string name="select_name">Selecione seu nome</string>
+    <string name="select_graduation">Selecione a graduação</string>
+    <string name="select_crbm">Selecione o CRBM</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="select_obm">Selecione a OBM</string>
+    <string name="save">Salvar</string>
+    <string name="next">Próximo</string>
+    <string name="register_txt_header">Preencha os campos para realizar cadastro do usuário</string>
 
 </resources>

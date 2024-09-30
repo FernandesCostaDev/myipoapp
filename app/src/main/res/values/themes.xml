@@ -8,6 +8,9 @@
       <!--  <item name="colorSecondary">@color/blue1</item>
         <item name="colorSecondaryVariant">@color/blue1</item>
         <item name="colorOnSecondary">@color/white</item>-->
+
+        <item name="android:statusBarColor">@color/blue2</item>"
+
     </style>
 
     <style name="Theme.MyIPOApp" parent="Base.Theme.MyIPOApp"/>
@@ -15,4 +18,16 @@
     <style name="Theme.MyIPOApp.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/gray1</item>
     </style>
+    
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="android:windowBackground">@color/blue2</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/brasao_bombeiro</item>
+        <item name="postSplashScreenTheme">@style/Theme.MyIPOApp</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionOverflowButtonStyle">@style/OverflowMenuStyle</item>
+    </style>
+
+
 </resources>

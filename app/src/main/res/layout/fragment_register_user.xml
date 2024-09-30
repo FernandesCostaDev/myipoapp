@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,29 +9,141 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/gray1"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/register_txt_header"
+        android:textColor="@color/white"
         android:textSize="16sp"
-        android:layout_marginBottom="24dp"
-        android:text="Fragmento de cadastro de usuário"/>
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/select_edit_nome_input"
-        style="@style/Theme.MyIPOApp.FormEditTextInput"
-        app:hintEnabled="false"
-        app:layout_constraintBottom_toTopOf="@+id/select_name_input"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/base_background"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView1">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_edit_nome"
-            style="@style/Theme.MyIPOApp.FormEditText"
-            android:autofillHints="@null"
-            android:hint="@string/name"
-            android:inputType="textPersonName" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_edit_name_input"
+            style="@style/Theme.MyIPOApp.FormEditTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="13dp"
+            app:hintEnabled="false">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_edit_name"
+                style="@style/Theme.MyIPOApp.FormEditText"
+                android:autofillHints="@null"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_auto_graduacao_input"
+            style="@style/AutoTextViewForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/register_auto_graduacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/select_graduation" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_auto_crbm_input"
+            style="@style/AutoTextViewForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/register_auto_crbm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/select_crbm" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_auto_obm_input"
+            style="@style/AutoTextViewForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/register_auto_obm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/select_obm" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/register_button_add"
+            style="@style/Theme.MyIPOApp.ButtonAssistant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:enabled="false"
+            android:text="@string/adicionar" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/register_txt_fireman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/register_txt_crbm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/register_txt_fireman"
+        app:layout_constraintTop_toBottomOf="@+id/register_txt_fireman" />
+
+    <TextView
+        android:id="@+id/register_txt_obm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/register_txt_crbm"
+        app:layout_constraintTop_toBottomOf="@+id/register_txt_crbm" />
+
+    <Button
+        android:id="@+id/register_button_save"
+        style="@style/Theme.MyIPOApp.ButtonMain"
+        android:enabled="false"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@ interface UserDao {
     @Insert
     fun insert(user: User)
 
-    @Query("SELECT * FROM User ORDER BY nome ASC")
+    @Query("SELECT * FROM User ORDER BY fireman ASC")
     fun query(): List<User>
 
     @Delete
