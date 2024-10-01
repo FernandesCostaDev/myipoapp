@@ -25,6 +25,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding?.let { it ->
             with(it) {
+
+                selectNameComplete.addTextChangedListener(watcher)
+
                 Thread {
                     val app = requireActivity().application as App.App
                     val dao = app.db.userDao()

@@ -20,5 +20,7 @@
     <string name="save">Salvar</string>
     <string name="next">Próximo</string>
     <string name="register_txt_header">Preencha os campos para realizar cadastro do usuário</string>
+    <string name="msg_deletar">Deseja excluir este usuário?</string>
+    <string name="delete_txt_msg">Clique e segure sobre o ícone da lixeira referente ao nome para deletar o usuário</string>
 
 </resources>
