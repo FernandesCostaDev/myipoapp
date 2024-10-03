@@ -22,5 +22,8 @@
     <string name="register_txt_header">Preencha os campos para realizar cadastro do usuário</string>
     <string name="msg_deletar">Deseja excluir este usuário?</string>
     <string name="delete_txt_msg">Clique e segure sobre o ícone da lixeira referente ao nome para deletar o usuário</string>
+    <string name="initial_txt_msg">Informações Iniciais</string>
+    <string name="initial_txt_time">Selecione a data e hora nos icones abaixo</string>
+    <string name="initial_auto_nature">Natureza:</string>
 
 </resources>
