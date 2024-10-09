@@ -8,7 +8,7 @@
     android:background="@color/blue2">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/home_linearLayout"
         android:layout_width="395dp"
         android:layout_height="150dp"
         android:background="@drawable/base_background"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/select_name_input"
+            android:id="@+id/home_auto_fireman_input"
             style="@style/AutoTextViewForm"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView">
 
             <AutoCompleteTextView
-                android:id="@+id/select_name_complete"
+                android:id="@+id/home_auto_fireman"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
@@ -48,14 +48,14 @@
         android:text="@string/home_txt_addUser"
         android:textColor="@color/gray1"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/select_start_button"
+        app:layout_constraintBottom_toTopOf="@+id/home_linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/home_button_start" />
 
     <Button
-        android:id="@+id/select_start_button"
+        android:id="@+id/home_button_start"
         style="@style/Theme.MyIPOApp.ButtonMain"
         android:enabled="false"
         android:text="@string/next"

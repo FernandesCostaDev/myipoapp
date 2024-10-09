@@ -10,8 +10,11 @@ interface UserDao {
     @Insert
     fun insert(user: User)
 
-    @Query("SELECT * FROM User ORDER BY fireman ASC")
+    @Query("SELECT * FROM User ORDER BY cod ASC")
     fun query(): List<User>
+
+    @Query("SELECT * FROM User WHERE fireman = :fireman")
+    fun queryTwo(fireman: String): List<User>
 
     @Delete
     fun delete(user: User):Int

@@ -21,7 +21,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
-        android:id="@+id/frame_main"
+        android:id="@+id/main_frame"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:name="com.example.myipoapp.main.view.register.view.HomeFragment"

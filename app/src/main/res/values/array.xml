@@ -13,7 +13,9 @@
         <item>2º Sgt. QPBM</item>
         <item>1º Sgt. QPBM</item>
         <item>Subten. QPBM</item>
-        <item>1º Tenente QOBM</item>
+        <item>Asp. QPBM</item>
+        <item>2º Ten. QOBM</item>
+        <item>1º Ten. QOBM</item>
     </string-array>
 
     <string-array name="crbm">
@@ -822,7 +824,7 @@
     </string-array>
 
 
-    <string-array name="naturezaEvento">
+    <string-array name="natureEvent">
         <item>Acidente de Trânsito</item>
         <item>APH</item>
         <item>Atendimento Comunitário</item>

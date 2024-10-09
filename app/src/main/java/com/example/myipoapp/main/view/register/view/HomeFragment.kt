@@ -1,5 +1,6 @@
 package com.example.myipoapp.main.view.register.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -11,6 +12,7 @@ import com.example.myipoapp.R
 import com.example.myipoapp.databinding.FragmentHomeBinding
 import com.example.myipoapp.main.view.common.util.TxtWatcher
 import com.example.myipoapp.main.view.database.App
+import com.example.myipoapp.main.view.main.view.InitialActivity
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -26,7 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding?.let { it ->
             with(it) {
 
-                selectNameComplete.addTextChangedListener(watcher)
+                homeAutoFireman.addTextChangedListener(watcher)
 
                 Thread {
                     val app = requireActivity().application as App.App
@@ -43,9 +45,36 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                                 android.R.layout.simple_list_item_1,
                                 list
                             )
-                        selectNameComplete.setAdapter(adapter)
+                        homeAutoFireman.setAdapter(adapter)
                     }
                 }.start()
+
+
+                homeButtonStart.setOnClickListener {
+                    val firemanId = homeAutoFireman.text.toString()
+                    var fireman = ""
+                    var crbm = ""
+                    var obm = ""
+
+                    Thread {
+                        val app = requireActivity().application as App.App
+                        val dao = app.db.userDao()
+                        val resultado = dao.queryTwo(firemanId)
+
+                        for (perfilUser in resultado) {
+                            fireman = perfilUser.fireman.toString()
+                            crbm = perfilUser.crbm.toString()
+                            obm = perfilUser.obm.toString()
+                        }
+                        requireActivity().runOnUiThread {
+                            val intent = Intent(requireContext(), InitialActivity::class.java)
+                            intent.putExtra("fireman", fireman)
+                            intent.putExtra("crbm", crbm)
+                            intent.putExtra("obm", obm)
+                            startActivity(intent)
+                        }
+                    }.start()
+                }
             }
         }
     }
@@ -61,7 +90,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private val watcher = TxtWatcher{
-        binding?.selectStartButton?.isEnabled = binding?.selectNameComplete?.text.toString().isNotEmpty()
+        binding?.homeButtonStart?.isEnabled = binding?.homeAutoFireman?.text.toString().isNotEmpty()
     }
 
     override fun onDestroyView() {

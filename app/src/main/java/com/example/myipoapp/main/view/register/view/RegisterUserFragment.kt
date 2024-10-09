@@ -24,6 +24,7 @@ class RegisterUserFragment : Fragment(R.layout.fragment_register_user) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRegisterUserBinding.bind(view)
 
+        var cod = 0
         var fireman = ""
         var crbm = ""
         var obm = ""
@@ -106,11 +107,44 @@ class RegisterUserFragment : Fragment(R.layout.fragment_register_user) {
                 }
 
                 registerButtonSave.setOnClickListener {
+                    val graduation = registerAutoGraduacao.text.toString()
+
+                    when (graduation) {
+                        "Sd. QPBM" -> {
+                            cod = 1
+                        }
+                        "Cb. QPBM" -> {
+                            cod = 2
+                        }
+                        "3º Sgt. QPBM" -> {
+                            cod = 3
+                        }
+                        "2º Sgt. QPBM" -> {
+                            cod = 4
+                        }
+                        "1º Sgt. QPBM" -> {
+                            cod = 5
+                        }
+                        "Subten. QPBM" -> {
+                            cod = 6
+                        }
+                        "Asp. QOBM" -> {
+                            cod = 7
+                        }
+                        "2º Ten. QOBM" -> {
+                            cod = 8
+                        }
+                        "1º Ten. QOBM" -> {
+                            cod = 9
+                        }
+                    }
+
                     Thread {
                         val app = requireActivity().application as App.App
                         val dao = app.db.userDao()
                         dao.insert(
                             User(
+                                cod = cod,
                                 fireman = fireman,
                                 crbm = crbm,
                                 obm = obm
