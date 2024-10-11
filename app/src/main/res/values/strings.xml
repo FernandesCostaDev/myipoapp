@@ -25,5 +25,13 @@
     <string name="initial_txt_msg">Informações Iniciais</string>
     <string name="initial_txt_time">Selecione a data e hora nos icones abaixo</string>
     <string name="initial_auto_nature">Natureza:</string>
+    <string name="city">Cidade:</string>
+    <string name="street">Logradouro:</string>
+    <string name="neighborhood">Bairro:</string>
+    <string name="complement">Complemento:</string>
+    <string name="mandatory">*</string>
+    <string name="mandatory_item">* Itens obrigatórios</string>
+    <string name="address_txt_msg">Informe os dados abaixo</string>
+    <string name="address_toolbar_msg">Local do evento</string>
 
 </resources>

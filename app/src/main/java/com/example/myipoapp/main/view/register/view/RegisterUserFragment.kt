@@ -50,12 +50,7 @@ class RegisterUserFragment : Fragment(R.layout.fragment_register_user) {
                     when (crbm) {
                         "1º CRBM Curitiba" -> {
                             val itemsObm = resources.getStringArray(R.array.obm_1crbm)
-                            val adapterObm =
-                                ArrayAdapter(
-                                    requireContext(),
-                                    android.R.layout.simple_list_item_1,
-                                    itemsObm
-                                )
+                            val adapterObm =ArrayAdapter(requireContext(),android.R.layout.simple_list_item_1,itemsObm)
                             registerAutoObm.setAdapter(adapterObm)
                         }
 

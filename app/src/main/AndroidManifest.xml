@@ -14,16 +14,25 @@
         android:theme="@style/Theme.App.Starting"
         tools:targetApi="31">
         <activity
+            android:name=".main.view.main.view.ResourcesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyIPOApp"/>
+        <activity
             android:name=".main.view.main.view.AddressActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Theme.MyIPOApp">
+
+        </activity>
         <activity
             android:name=".main.view.main.view.InitialActivity"
             android:exported="true"
-            android:theme="@style/Theme.MyIPOApp"></activity>
+            android:theme="@style/Theme.MyIPOApp">
+        </activity>
         <activity
             android:name=".main.view.main.view.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

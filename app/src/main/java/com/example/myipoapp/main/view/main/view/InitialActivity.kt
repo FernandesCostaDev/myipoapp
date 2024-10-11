@@ -7,6 +7,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import androidx.core.widget.addTextChangedListener
 import com.example.myipoapp.R
 import com.example.myipoapp.databinding.ActivityInitialBinding
 import com.example.myipoapp.main.view.common.util.TxtWatcher
@@ -30,8 +32,8 @@ class InitialActivity : AppCompatActivity() {
         with(binding) {
             initialTxtDate.addTextChangedListener(watcher)
             initialTxtTime.addTextChangedListener(watcher)
-            initialNatureComplete.addTextChangedListener(watcher)
-            initialSubNatureComplete.addTextChangedListener(watcher)
+            initialAutoNature.addTextChangedListener(watcher)
+            initialAutoSubNature.addTextChangedListener(watcher)
 
             initialBtnCalendar.setOnClickListener {
                 showDatePickerDialog()
@@ -41,11 +43,65 @@ class InitialActivity : AppCompatActivity() {
                 timePicker()
             }
 
+            val itemNature = resources.getStringArray(R.array.natureEvent)
+            val adapterNature = ArrayAdapter(this@InitialActivity, android.R.layout.simple_list_item_1, itemNature)
+            initialAutoNature.setAdapter(adapterNature)
+
+            initialAutoNature.addTextChangedListener {
+                val selectedNature = initialAutoNature.text.toString()
+
+                when (selectedNature) {
+                    "Acidente de Trânsito" -> {
+                        val itemAcidenteTransito =resources.getStringArray(R.array.subNaturezaAcidenteTransito)
+                        val adapterAcidenteTransito = ArrayAdapter(this@InitialActivity,android.R.layout.simple_list_item_1, itemAcidenteTransito)
+                       initialAutoSubNature.setAdapter(adapterAcidenteTransito)
+                    }
+
+                    "APH" -> {
+                        val itemAph = resources.getStringArray(R.array.subNaturezaAPH)
+                        val adapterAph =
+                            ArrayAdapter(this@InitialActivity, android.R.layout.simple_list_item_1, itemAph)
+                        initialAutoSubNature.setAdapter(adapterAph)
+                    }
+
+                    "Atendimento Comunitário" -> {
+                        val itemComunitario =
+                            resources.getStringArray(R.array.subNaturezaAtendimentoComunitario)
+                        val adapterComunitario =
+                            ArrayAdapter(this@InitialActivity, android.R.layout.simple_list_item_1, itemComunitario)
+                        initialAutoSubNature.setAdapter(adapterComunitario)
+                    }
+
+                    "Busca e Salvamento" -> {
+                        val itemBuscaSalvamento =
+                            resources.getStringArray(R.array.subNaturezaBuscaSalvamento)
+                        val adapterBuscaSalvamento =
+                            ArrayAdapter(this@InitialActivity, android.R.layout.simple_list_item_1, itemBuscaSalvamento)
+                        initialAutoSubNature.setAdapter(adapterBuscaSalvamento)
+                    }
+
+                    "Desastre" -> {
+                        val itemDesastre = resources.getStringArray(R.array.subNaturezaDesastre)
+                        val adapterDesatre =
+                            ArrayAdapter(this@InitialActivity, android.R.layout.simple_list_item_1, itemDesastre)
+                        initialAutoSubNature.setAdapter(adapterDesatre)
+                    }
+
+                    "Incêndio" -> {
+                        val itemIncendio = resources.getStringArray(R.array.subNaturezaIncendio)
+                        val adapterIncendio =
+                            ArrayAdapter(this@InitialActivity, android.R.layout.simple_list_item_1, itemIncendio)
+                        initialAutoSubNature.setAdapter(adapterIncendio)
+                    }
+                }
+
+            }
+
             initialButtonNext.setOnClickListener {
                 val date = initialTxtDate.text.toString()
                 val time = initialTxtTime.text.toString()
-                val nature = initialNatureComplete.text.toString()
-                val subNature = initialSubNatureComplete.text.toString()
+                val nature = initialAutoNature.text.toString()
+                val subNature = initialAutoSubNature.text.toString()
                 val returnFireman = intent.getStringExtra("fireman")
                 val returnCrbm = intent.getStringExtra("crbm")
                 val returnObm = intent.getStringExtra("obm")
@@ -60,10 +116,6 @@ class InitialActivity : AppCompatActivity() {
                 intent.putExtra("obm", returnObm)
                 startActivity(intent)
             }
-
-            val itemNature = resources.getStringArray(R.array.natureEvent)
-            val adapterNature = ArrayAdapter(this@InitialActivity, android.R.layout.simple_list_item_1, itemNature)
-            binding.initialNatureComplete.setAdapter(adapterNature)
         }
     }
 
@@ -103,8 +155,8 @@ class InitialActivity : AppCompatActivity() {
     private val watcher = TxtWatcher {
         binding.initialButtonNext.isEnabled = binding.initialTxtDate.text.isNotEmpty() &&
                 binding.initialTxtTime.text.isNotEmpty() &&
-                binding.initialNatureComplete.text.isNotEmpty() &&
-                binding.initialSubNatureComplete.text.isNotEmpty()
+                binding.initialAutoNature.text.isNotEmpty() &&
+                binding.initialAutoSubNature.text.isNotEmpty()
 
 
     }

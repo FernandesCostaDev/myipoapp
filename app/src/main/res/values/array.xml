@@ -240,7 +240,7 @@
         <item>10º SGBI / União da Vitória</item>
     </string-array>
 
-    <string-array name="cidades">
+    <string-array name="cities">
         <item>Abatiá</item>
         <item>Adrianópolis</item>
         <item>Agudos do Sul</item>
@@ -640,7 +640,7 @@
         <item>Xambrê</item>
     </string-array>
 
-    <string-array name="logradouros">
+    <string-array name="streets">
         <item>Acesso</item>
         <item>Acampamento</item>
         <item>Acesso Local</item>

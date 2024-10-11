@@ -2,9 +2,127 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue2"
     tools:context=".main.view.main.view.AddressActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/address_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue2"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/address_toolbar_msg"
+        app:titleMarginStart="10dp"
+        app:titleTextColor="@color/white"
+        tools:ignore="RtlSymmetry" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_toolbar"
+        app:layout_constraintVertical_bias="0.3">
+
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/base_background"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="@string/address_txt_msg"
+                android:textColor="@color/gray_text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/TextViewMandatory" />
+
+            <AutoCompleteTextView
+                android:id="@+id/address_autoComplete_city"
+                style="@style/Theme.MyIPOApp.FormEditText"
+                android:hint="@string/city"
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/TextViewMandatory"
+                android:layout_marginTop="10dp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/address_autoComplete_street"
+                style="@style/Theme.MyIPOApp.FormEditText"
+                android:hint="@string/street"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_autoComplete_city"
+                tools:ignore="LabelFor" />
+
+            <TextView
+                style="@style/TextViewMandatory"
+                android:layout_marginTop="10dp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/address_autoComplete_neighborhood"
+                style="@style/Theme.MyIPOApp.FormEditText"
+                android:hint="@string/neighborhood"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_autoComplete_street"
+                tools:ignore="LabelFor" />
+
+            <EditText
+                android:id="@+id/address_edit_complement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autofillHints="@null"
+                android:hint="@string/complement"
+                android:inputType="textPersonName"
+                android:maxLength="41"
+                android:paddingStart="16dp"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@+id/address_autoComplete_neighborhood"
+                tools:layout_editor_absoluteX="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/mandatory_item"
+                android:textColor="@color/red"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/address_edit_complement" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/address_button_next"
+        style="@style/Theme.MyIPOApp.ButtonMain"
+        android:enabled="false"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
