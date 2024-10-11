@@ -1,4 +1,4 @@
-package com.example.myipoapp.main.view.register.view
+package com.example.myipoapp.main.view.register.view.user
 
 import android.os.Bundle
 import android.view.View

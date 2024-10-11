@@ -15,8 +15,14 @@
         tools:targetApi="31">
         <activity
             android:name=".main.view.main.view.ResourcesActivity"
-            android:exported="false"
-            android:theme="@style/Theme.MyIPOApp"/>
+            android:exported="true"
+            android:theme="@style/Theme.MyIPOApp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".main.view.main.view.AddressActivity"
             android:exported="true"
@@ -33,11 +39,7 @@
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

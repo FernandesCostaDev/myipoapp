@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_bottom_resources"
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/resources"/>
+
+    <item android:id="@+id/menu_bottom_VehicleAdd"
+        android:icon="@drawable/baseline_person_add_24"
+        android:title="@string/add_vehicles"/>
+
+    <item android:id="@+id/menu_bottom_VehiclesDel"
+        android:icon="@drawable/baseline_delete_24"
+        android:title="@string/del_vehicles"/>
+</menu>

@@ -7,4 +7,43 @@
     android:layout_height="match_parent"
     tools:context=".main.view.main.view.ResourcesActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/resources_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/resources_txt"
+        app:titleTextColor="@color/white">
+    </androidx.appcompat.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/resources_frame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="com.example.myipoapp.main.view.register.vehicles.ResourcesFragment"
+        tools:layout="@layout/fragment_resources"
+        app:layout_constraintBottom_toTopOf="@+id/resources_bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resources_toolbar" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/resources_bottom_nav"
+        android:background="@color/gray1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/blue2"
+        app:itemIconTint="@color/selector_bottom_na_item_color"
+        app:itemTextColor="@color/gray1"
+        app:menu="@menu/resource_bottom_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:itemIconSize="26dp"
+        app:itemActiveIndicatorStyle="@style/Theme.MyIPOApp.Indicator"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

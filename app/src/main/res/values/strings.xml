@@ -33,5 +33,11 @@
     <string name="mandatory_item">* Itens obrigatórios</string>
     <string name="address_txt_msg">Informe os dados abaixo</string>
     <string name="address_toolbar_msg">Local do evento</string>
+    <string name="resources">Recursos</string>
+    <string name="add_vehicles">Adicionar viaturas</string>
+    <string name="del_vehicles">Excluir Viaturas</string>
+    <string name="resources_txt">Recursos utilizados</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

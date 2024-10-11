@@ -7,9 +7,9 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.example.myipoapp.R
 import com.example.myipoapp.databinding.ActivityMainBinding
-import com.example.myipoapp.main.view.register.view.DeleteUserFragment
-import com.example.myipoapp.main.view.register.view.HomeFragment
-import com.example.myipoapp.main.view.register.view.RegisterUserFragment
+import com.example.myipoapp.main.view.register.view.user.DeleteUserFragment
+import com.example.myipoapp.main.view.register.view.user.HomeFragment
+import com.example.myipoapp.main.view.register.view.user.RegisterUserFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

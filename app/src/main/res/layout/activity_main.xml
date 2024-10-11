@@ -39,7 +39,7 @@
         app:backgroundTint="@color/blue2"
         app:itemIconTint="@color/selector_bottom_na_item_color"
         app:itemTextColor="@color/gray1"
-        app:menu="@menu/menu_bottom_nav"
+        app:menu="@menu/main_bottom_nav"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
