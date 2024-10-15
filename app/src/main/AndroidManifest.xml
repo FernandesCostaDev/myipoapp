@@ -17,23 +17,26 @@
             android:name=".main.view.main.view.ResourcesActivity"
             android:exported="true"
             android:theme="@style/Theme.MyIPOApp">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".main.view.main.view.AddressActivity"
             android:exported="true"
             android:theme="@style/Theme.MyIPOApp">
-
         </activity>
+
         <activity
             android:name=".main.view.main.view.InitialActivity"
             android:exported="true"
             android:theme="@style/Theme.MyIPOApp">
         </activity>
+
         <activity
             android:name=".main.view.main.view.MainActivity"
             android:exported="true"
@@ -41,6 +44,7 @@
 
 
         </activity>
+
     </application>
 
 </manifest>

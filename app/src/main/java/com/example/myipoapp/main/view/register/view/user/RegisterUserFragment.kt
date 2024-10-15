@@ -13,7 +13,7 @@ import com.example.myipoapp.R
 import com.example.myipoapp.databinding.FragmentRegisterUserBinding
 import com.example.myipoapp.main.view.common.util.TxtWatcher
 import com.example.myipoapp.main.view.database.App
-import com.example.myipoapp.main.view.database.User
+import com.example.myipoapp.main.view.database.users.User
 import com.example.myipoapp.main.view.main.view.MainActivity
 
 class RegisterUserFragment : Fragment(R.layout.fragment_register_user) {

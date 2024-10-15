@@ -1,6 +1,6 @@
 package com.example.myipoapp.main.view.common.util
 
-import com.example.myipoapp.main.view.database.User
+import com.example.myipoapp.main.view.database.users.User
 
 
 interface OnListClickListener {

@@ -1,60 +1,120 @@
 package com.example.myipoapp.main.view.register.view.vehicles
 
+
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.myipoapp.R
+import com.example.myipoapp.databinding.FragmentRegisterVehiclesBinding
+import com.example.myipoapp.main.view.common.util.TxtWatcher
+import com.example.myipoapp.main.view.database.App
+import com.example.myipoapp.main.view.database.users.User
+import com.example.myipoapp.main.view.database.vehicles.Vehicles
+import com.example.myipoapp.main.view.main.view.MainActivity
+import com.example.myipoapp.main.view.main.view.ResourcesActivity
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RegisterVehiclesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class RegisterVehiclesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class RegisterVehiclesFragment : Fragment(R.layout.fragment_register_vehicles) {
+    private var binding: FragmentRegisterVehiclesBinding? = null
+    private lateinit var prefix: String
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentRegisterVehiclesBinding.bind(view)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        var cod = 0
+
+        binding?.let {
+            with(it) {
+                registerVehiclesAutoType.addTextChangedListener(watcher)
+                registerVehiclesEditNumber.addTextChangedListener(watcher)
+                registerVehiclesTxtPrefix.addTextChangedListener(watcher)
+
+                val itemsTypology = resources.getStringArray(R.array.typology)
+                val adapterTypology =
+                    ArrayAdapter(
+                        requireContext(),
+                        android.R.layout.simple_list_item_1,
+                        itemsTypology
+                    )
+                registerVehiclesAutoType.setAdapter(adapterTypology)
+
+                registerVehiclesButtonAdd.setOnClickListener {
+                    val service =
+                        requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    service.hideSoftInputFromWindow(requireActivity().currentFocus?.windowToken, 0)
+
+                    prefix =
+                        registerVehiclesAutoType.text.toString() + " " + registerVehiclesEditNumber.text.toString()
+                    binding?.registerVehiclesTxtPrefix?.text = prefix
+                }
+
+
+                registerVehiclesButtonSave.setOnClickListener {
+                    val type = registerVehiclesAutoType.text.toString()
+
+                    when (type) {
+                        "ABTR:" -> {
+                            cod = 1
+                        }
+
+                        "AA:" -> {
+                            cod = 2
+                        }
+
+                        "ABS:" -> {
+                            cod = 3
+                        }
+
+                        "ABT:" -> {
+                            cod = 4
+                        }
+
+                        "AT:" -> {
+                            cod = 5
+                        }
+
+                        "ATP:" -> {
+                            cod = 6
+                        }
+                    }
+
+                    Thread {
+                        val app = requireActivity().application as App.App
+                        val dao = app.db.vehiclesDao()
+                        dao.insert(
+                            Vehicles(
+                                cod = cod,
+                                prefix = prefix
+                            )
+                        )
+                        requireActivity().runOnUiThread {
+                            Toast.makeText(requireContext(), "Dados salvo com sucesso! \uD83E\uDDD1\u200D\uD83D\uDE92", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(requireContext(), ResourcesActivity::class.java)
+                            startActivity(intent)
+                        }
+                    }.start()
+
+                }
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_vehicles, container, false)
+    private val watcher = TxtWatcher {
+        binding?.registerVehiclesButtonAdd?.isEnabled =
+            binding?.registerVehiclesAutoType?.text.toString().isNotEmpty() &&
+                    binding?.registerVehiclesEditNumber?.text.toString().isNotEmpty()
+
+        binding?.registerVehiclesButtonSave?.isEnabled =
+            binding?.registerVehiclesTxtPrefix?.text.toString().isNotEmpty()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegisterVehiclesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegisterVehiclesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
     }
 }

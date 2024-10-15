@@ -13,7 +13,7 @@ import com.example.myipoapp.R
 import com.example.myipoapp.databinding.FragmentDeleteUserBinding
 import com.example.myipoapp.main.view.common.util.OnListClickListener
 import com.example.myipoapp.main.view.database.App
-import com.example.myipoapp.main.view.database.User
+import com.example.myipoapp.main.view.database.users.User
 
 class DeleteUserFragment : Fragment(R.layout.fragment_delete_user), OnListClickListener {
     private var binding: FragmentDeleteUserBinding? = null
@@ -26,7 +26,6 @@ class DeleteUserFragment : Fragment(R.layout.fragment_delete_user), OnListClickL
         binding = FragmentDeleteUserBinding.bind(view)
 
         this.list = mutableListOf<User>()
-
         adapter = AdapterNames(list, this)
 
         rv = binding!!.rvDelUser
@@ -108,4 +107,8 @@ class DeleteUserFragment : Fragment(R.layout.fragment_delete_user), OnListClickL
 
     }
 
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
+    }
 }

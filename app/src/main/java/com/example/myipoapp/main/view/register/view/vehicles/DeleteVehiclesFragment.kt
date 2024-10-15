@@ -1,60 +1,121 @@
 package com.example.myipoapp.main.view.register.view.vehicles
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.myipoapp.R
+import com.example.myipoapp.databinding.FragmentDeleteVehiclesBinding
+import com.example.myipoapp.main.view.common.util.OnListClickListenerVehicles
+import com.example.myipoapp.main.view.database.App
+import com.example.myipoapp.main.view.database.vehicles.Vehicles
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class DeleteVehiclesFragment : Fragment(R.layout.fragment_delete_vehicles),
+    OnListClickListenerVehicles {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DeleteVehiclesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class DeleteVehiclesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var binding: FragmentDeleteVehiclesBinding? = null
+    private lateinit var list: MutableList<Vehicles>
+    private lateinit var adapter: AdapterVehicles
+    private lateinit var rv: RecyclerView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentDeleteVehiclesBinding.bind(view)
+
+        this.list = mutableListOf<Vehicles>()
+        adapter = AdapterVehicles(list, this)
+
+        rv = binding!!.rvDelVehicles
+        rv.layoutManager = LinearLayoutManager(requireContext())
+        rv.adapter = adapter
+
+
+        Thread {
+            val app = requireActivity().application as App.App
+            val dao = app.db.vehiclesDao()
+            val result = dao.query()
+
+            requireActivity().runOnUiThread() {
+                list.addAll(result)
+                adapter.notifyDataSetChanged()
+            }
+        }.start()
+
+    }
+
+    private inner class AdapterVehicles(
+        private val list: List<Vehicles>,
+        private val listener: DeleteVehiclesFragment
+    ) : RecyclerView.Adapter<AdapterVehicles.VehiclesViewHolder>() {
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehiclesViewHolder {
+            val view = layoutInflater.inflate(R.layout.item_vehicles, parent, false)
+            return VehiclesViewHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: VehiclesViewHolder, position: Int) {
+            val itemCurrent = list[position]
+            holder.bind(itemCurrent)
+        }
+
+        override fun getItemCount(): Int {
+            return list.size
+        }
+
+        private inner class VehiclesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            fun bind(item: Vehicles) {
+                val tvVehicles = itemView.findViewById<TextView>(R.id.delete_txt_vehicle)
+                tvVehicles.text = item.prefix
+
+                val imgDelete = itemView.findViewById<ImageView>(R.id.delete_img_delete)
+                imgDelete.setOnClickListener {
+                    listener.onLongClick(adapterPosition, item)
+                }
+
+                tvVehicles.setOnClickListener {
+                    listener.onClick(item.id, "prefix")
+                }
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_delete_vehicles, container, false)
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DeleteVehiclesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DeleteVehiclesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onClick(id: Int, type: String) {
+
+    }
+
+    override fun onLongClick(position: Int, vehicles: Vehicles) {
+        AlertDialog.Builder(requireContext())
+            .setMessage(getString(R.string.msg_delete_vehicle))
+            .setNegativeButton(android.R.string.cancel) { dialog, which ->
             }
+            .setPositiveButton(android.R.string.ok) { dialog, which ->
+
+                Thread {
+                    val app = requireActivity().application as App.App
+                    val dao = app.db.vehiclesDao()
+                    val result = dao.delete(vehicles)
+
+                    if (result > 0) {
+                        requireActivity().runOnUiThread() {
+                            list.removeAt(position)
+                            adapter.notifyItemRemoved(position)
+                        }
+                    }
+
+                }.start()
+            }
+            .create()
+            .show()
+
     }
 }

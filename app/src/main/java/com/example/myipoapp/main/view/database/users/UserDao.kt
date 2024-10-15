@@ -1,4 +1,4 @@
-package com.example.myipoapp.main.view.database
+package com.example.myipoapp.main.view.database.users
 
 import androidx.room.Dao
 import androidx.room.Delete

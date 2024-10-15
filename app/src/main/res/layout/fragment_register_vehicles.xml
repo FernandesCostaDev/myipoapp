@@ -1,14 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue2"
     tools:context=".main.view.register.view.vehicles.RegisterVehiclesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/registerVehicles_txt_header"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/registerVehicles_constraintLayout"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/base_background"
+        android:elevation="5dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerVehicles_auto_type_input"
+            style="@style/AutoTextViewForm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/registerVehicles_auto_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/select_type" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerVehicles_edit_number_input"
+            style="@style/Theme.MyIPOApp.FormEditTextInput"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            app:hintEnabled="false"
+            app:layout_constraintStart_toStartOf="@+id/registerVehicles_auto_type_input"
+            app:layout_constraintTop_toBottomOf="@+id/registerVehicles_auto_type_input">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerVehicles_edit_number"
+                style="@style/Theme.MyIPOApp.FormEditText"
+                android:autofillHints="@null"
+                android:hint="@string/number"
+                android:inputType="number"
+                android:maxLength="5"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <Button
+            android:id="@+id/registerVehicles_button_add"
+            style="@style/Theme.MyIPOApp.ButtonAssistant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:enabled="false"
+            android:text="@string/adicionar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerVehicles_edit_number_input" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/registerVehicles_txt_prefix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerVehicles_constraintLayout" />
+
+    <Button
+        android:id="@+id/registerVehicles_button_save"
+        style="@style/Theme.MyIPOApp.ButtonMain"
+        android:enabled="false"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,10 +2,6 @@
 
 <resources>
 
-    <string-array name="testeName">
-        <item>Cb. QPBM David Fernandes da Costa</item>
-    </string-array>
-
     <string-array name="graduacao">
         <item>Sd. QPBM</item>
         <item>Cb. QPBM</item>
@@ -927,11 +923,13 @@
         <item>Outros</item>
     </string-array>
 
-    <string-array name="tipologia">
-        <item>ABTR:</item>
+    <string-array name="typology">
         <item>AA:</item>
+        <item>AT:</item>
         <item>ABS:</item>
         <item>ABT:</item>
+        <item>ATP:</item>
+        <item>ABTR:</item>
     </string-array>
 
 </resources>
