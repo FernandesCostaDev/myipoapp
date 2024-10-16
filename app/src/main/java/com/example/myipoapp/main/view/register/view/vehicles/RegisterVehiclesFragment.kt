@@ -22,6 +22,7 @@ import com.example.myipoapp.main.view.main.view.ResourcesActivity
 class RegisterVehiclesFragment : Fragment(R.layout.fragment_register_vehicles) {
     private var binding: FragmentRegisterVehiclesBinding? = null
     private lateinit var prefix: String
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRegisterVehiclesBinding.bind(view)

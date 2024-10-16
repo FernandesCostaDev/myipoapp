@@ -2,6 +2,7 @@ package com.example.myipoapp.main.view.main.view
 
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.myipoapp.R
@@ -25,25 +26,27 @@ class ResourcesActivity : AppCompatActivity() {
 
         replaceFragment(ResourcesFragment())
 
-        binding.resourcesBottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
+        with(binding) {
+            resourcesBottomNav.setOnItemSelectedListener { item ->
+                when (item.itemId) {
 
-                R.id.menu_bottom_resources -> {
-                    replaceFragment(ResourcesFragment())
-                    true
+                    R.id.menu_bottom_resources -> {
+                        replaceFragment(ResourcesFragment())
+                        true
+                    }
+
+                    R.id.menu_bottom_VehicleAdd -> {
+                        replaceFragment(RegisterVehiclesFragment())
+                        true
+                    }
+
+                    R.id.menu_bottom_VehiclesDel -> {
+                        replaceFragment(DeleteVehiclesFragment())
+                        true
+                    }
+
+                    else -> false
                 }
-
-                R.id.menu_bottom_VehicleAdd -> {
-                    replaceFragment(RegisterVehiclesFragment())
-                    true
-                }
-
-                R.id.menu_bottom_VehiclesDel -> {
-                    replaceFragment(DeleteVehiclesFragment())
-                    true
-                }
-
-                else -> false
             }
         }
     }
