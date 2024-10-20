@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/resources_cb_input" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/resources_editText_number"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -68,8 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Marque as viaturas empenhadas no evento"
-            app:layout_constraintStart_toStartOf="@+id/editText"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintStart_toStartOf="@+id/resources_editText_number"
+            app:layout_constraintTop_toBottomOf="@+id/resources_editText_number" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/resources_rv_vehicles"
@@ -86,7 +86,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/txt"
+        android:id="@+id/resources_txt_vehicles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/registerVehicles_constraintLayout" />
 
     <Button
-        android:id="@+id/register_button_save"
+        android:id="@+id/resources_button_next"
         style="@style/Theme.MyIPOApp.ButtonMain"
         android:enabled="false"
         android:text="@string/next"

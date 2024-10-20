@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue2"
+    tools:context=".main.view.main.view.VictimsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/victims_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue2"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/victims_toolbar_msg"
+        app:titleMarginStart="10dp"
+        app:titleTextColor="@color/white"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/victims_txt_header"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/victims_toolbar" />
+
+    <RadioGroup
+        android:id="@+id/victims_radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/base_background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1">
+
+        <RadioButton
+            android:id="@+id/radioButtonSim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/base_background"
+            android:padding="5dp"
+            android:text="@string/yes"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonNao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/base_background"
+            android:padding="5dp"
+            android:text="@string/no"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/base_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/victims_radioGroup">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/victims_constrainsLayout_txt_reader"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/VictimsTxtCode"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/victims_constraintLayout_txt_unharmed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <EditText
+            android:id="@+id/victims_edit_unharmed"
+            style="@style/VictimsEditCode"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/VictimsTxtCode"
+            android:layout_marginStart="24dp"
+            android:text="@string/victims_constraintLayout_txt_code1"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/victims_edit_unharmed"
+            app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+        <EditText
+            android:id="@+id/victims_edit_code1"
+            style="@style/VictimsEditCode"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/textView4"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/VictimsTxtCode"
+            android:layout_marginStart="24dp"
+            android:text="@string/victims_constraintLayout_txt_code2"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/victims_edit_code1"
+            app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+        <EditText
+            android:id="@+id/victims_edit_cod2"
+            style="@style/VictimsEditCode"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="@+id/textView5"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/VictimsTxtCode"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/victims_constraintLayout_txt_code3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <EditText
+            android:id="@+id/victims_edit_cod3"
+            style="@style/VictimsEditCode"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView
+            android:id="@+id/textView7"
+            style="@style/VictimsTxtCode"
+            android:layout_marginStart="24dp"
+            android:text="@string/victims_constraintLayout_txt_code4"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintStart_toEndOf="@+id/victims_edit_cod3"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+        <EditText
+            android:id="@+id/victims_edit_cod4"
+            style="@style/VictimsEditCode"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/textView7"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView
+            android:id="@+id/textView8"
+            style="@style/VictimsTxtCode"
+            android:layout_marginStart="24dp"
+            android:text="@string/victims_constraintLayout_txt_total"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toEndOf="@+id/victims_edit_cod4"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/victims_txt_total"
+            style="@style/VictimsTxtCode"
+            android:layout_marginStart="8dp"
+            android:hint="000"
+            android:maxLength="3"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toTopOf="@+id/textView8"
+            tools:ignore="Autofill,LabelFor" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/base_background"
+        android:enabled="false"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="400"
+        app:errorEnabled="true"
+        app:helperText="Campo opcional"
+        app:helperTextTextColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/victims_edit_obs"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="top"
+            android:hint="@string/victims_editField_obs"
+            android:inputType="textMultiLine">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/victims_button_next"
+        style="@style/Theme.MyIPOApp.ButtonMain"
+        android:enabled="false"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

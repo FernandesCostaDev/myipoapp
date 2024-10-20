@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">My IPO App</string>
-    <string name="txt_ipo2">Informe Padrão de Ocorrências</string>
+    <string name="main_toolbar_msg">Informe Padrão de Ocorrências</string>
 
 
     <string name="name">Digite seu nome</string>
@@ -41,9 +41,22 @@
     <string name="resources">Recursos</string>
     <string name="add_vehicles">Adicionar viaturas</string>
     <string name="del_vehicles">Excluir Viaturas</string>
-    <string name="resources_txt">Recursos utilizados</string>
+    <string name="resources_toolbar_msg">Recursos utilizados</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="resources_auto_cb">Unidade:</string>
+    <string name="victims_txt_header">Nesta ocorrência houve vitimas?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="victims_toolbar_msg">Danos à pessoas</string>
+    <string name="initial_toolbar_msg">Informações Iniciais</string>
+    <string name="victims_constrainsLayout_txt_reader">Informe a quantidade de vítima conforme o código</string>
+    <string name="victims_constraintLayout_txt_unharmed">Ilesa:</string>
+    <string name="victims_constraintLayout_txt_code1">Código 1:</string>
+    <string name="victims_constraintLayout_txt_code2">Código 2:</string>
+    <string name="victims_constraintLayout_txt_code3">Código 3:</string>
+    <string name="victims_constraintLayout_txt_code4">Código 4:</string>
+    <string name="victims_constraintLayout_txt_total">Total:</string>
+    <string name="victims_editField_obs">Informações da(s) vítima(s)</string>
 
 </resources>

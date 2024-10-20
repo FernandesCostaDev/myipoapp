@@ -28,7 +28,6 @@ class InitialActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.brasao_bombeiro_p)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
         with(binding) {
             initialTxtDate.addTextChangedListener(watcher)
             initialTxtTime.addTextChangedListener(watcher)

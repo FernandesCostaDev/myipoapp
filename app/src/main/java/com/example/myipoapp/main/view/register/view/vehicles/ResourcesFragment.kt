@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myipoapp.R
 import com.example.myipoapp.databinding.FragmentResourcesBinding
+import com.example.myipoapp.main.view.common.util.TxtWatcher
 import com.example.myipoapp.main.view.database.App
 import com.example.myipoapp.main.view.database.vehicles.Vehicles
 
@@ -230,7 +231,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
                     }
                 }
 
-                txtVehicles = txt
+                txtVehicles = resourcesTxtVehicles
 
                 adapter = AdapterVehicles(list, txtVehicles)
                 rv = resourcesRvVehicles
@@ -247,6 +248,10 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
                         adapter.notifyDataSetChanged()
                     }
                 }.start()
+
+                resourcesAutoCb.addTextChangedListener(watcher)
+                resourcesEditTextNumber.addTextChangedListener(watcher)
+                resourcesTxtVehicles.addTextChangedListener(watcher)
 
             }
         }
@@ -327,6 +332,11 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
         }
     }
 
+    private val watcher = TxtWatcher {
+        binding?.resourcesButtonNext?.isEnabled = binding?.resourcesAutoCb?.text.toString().isNotEmpty() &&
+                binding?.resourcesEditTextNumber?.text.toString().isNotEmpty() &&
+                binding?.resourcesTxtVehicles?.text.toString().isNotEmpty()
+    }
 
     override fun onDestroyView() {
         binding = null

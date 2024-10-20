@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-//toda vez que acrecentar uma coluna ou excluir atualizar o version no db
 @Entity
 data class User(
 @PrimaryKey(autoGenerate = true) val id: Int = 0,

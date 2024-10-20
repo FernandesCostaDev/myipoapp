@@ -84,11 +84,10 @@
         android:id="@+id/registerVehicles_txt_prefix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/registerVehicles_constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/registerVehicles_constraintLayout" />
 
     <Button

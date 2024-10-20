@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/txt_ipo2"
+        app:title="@string/main_toolbar_msg"
         app:titleTextColor="@color/white">
     </androidx.appcompat.widget.Toolbar>
 

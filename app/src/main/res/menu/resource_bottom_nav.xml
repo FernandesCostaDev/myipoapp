@@ -6,7 +6,7 @@
         android:title="@string/resources"/>
 
     <item android:id="@+id/menu_bottom_VehicleAdd"
-        android:icon="@drawable/baseline_person_add_24"
+        android:icon="@drawable/baseline_airport_shuttle_24"
         android:title="@string/add_vehicles"/>
 
     <item android:id="@+id/menu_bottom_VehiclesDel"
