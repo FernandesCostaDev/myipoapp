@@ -1,5 +1,6 @@
 package com.example.myipoapp.main.view.register.view.vehicles
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.example.myipoapp.databinding.FragmentResourcesBinding
 import com.example.myipoapp.main.view.common.util.TxtWatcher
 import com.example.myipoapp.main.view.database.App
 import com.example.myipoapp.main.view.database.vehicles.Vehicles
+import com.example.myipoapp.main.view.main.view.VictimsActivity
 
 
 class ResourcesFragment : Fragment(R.layout.fragment_resources) {
@@ -31,13 +33,23 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentResourcesBinding.bind(view)
 
-        val retornoObm = "1º GB Curitiba"
+        val returnFireman = arguments?.getString("fireman")
+        val returnCrbm = arguments?.getString("crbm")
+        val returnObm = arguments?.getString("obm")
+        val returnDate = arguments?.getString("date")
+        val returnTime = arguments?.getString("time")
+        val returnNature = arguments?.getString("nature")
+        val returnSubNature = arguments?.getString("subNature")
+        val returnCity = arguments?.getString("city")
+        val returnStreet = arguments?.getString("street")
+        val returnNeighborhood = arguments?.getString("neighborhood")
+        val returnComplement = arguments?.getString("complement")
 
         this.list = mutableListOf<Vehicles>()
 
         binding?.let {
             with(it) {
-                when (retornoObm) {
+                when (returnObm) {
                     "1º GB Curitiba" -> {
                         cbActivated = resources.getStringArray(R.array.gbCuritiba)
                         adapterCbActivated =
@@ -253,6 +265,28 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
                 resourcesEditTextNumber.addTextChangedListener(watcher)
                 resourcesTxtVehicles.addTextChangedListener(watcher)
 
+                resourcesButtonNext.setOnClickListener {
+                    val cb = resourcesAutoCb.text.toString()
+                    val number = resourcesEditTextNumber.text.toString()
+                    val vehicles = resourcesTxtVehicles.text.toString()
+
+                    val intent = Intent(requireContext(), VictimsActivity::class.java)
+                    intent.putExtra("cb", cb)
+                    intent.putExtra("number", number)
+                    intent.putExtra("vehicles", vehicles)
+                    intent.putExtra("city", returnCity)
+                    intent.putExtra("street", returnStreet)
+                    intent.putExtra("neighborhood", returnNeighborhood)
+                    intent.putExtra("complement", returnComplement)
+                    intent.putExtra("date", returnDate)
+                    intent.putExtra("time", returnTime)
+                    intent.putExtra("nature", returnNature)
+                    intent.putExtra("subNature", returnSubNature)
+                    intent.putExtra("fireman", returnFireman)
+                    intent.putExtra("crbm", returnCrbm)
+                    intent.putExtra("obm", returnObm)
+                    startActivity(intent)
+                }
             }
         }
     }
@@ -319,7 +353,6 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
                     updateTextView()
                 }
             }
-
         }
 
         fun getSelectedItems(): List<Vehicles> {

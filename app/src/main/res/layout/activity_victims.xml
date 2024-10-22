@@ -185,6 +185,7 @@
             style="@style/VictimsTxtCode"
             android:layout_marginStart="24dp"
             android:text="@string/victims_constraintLayout_txt_total"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView7"
             app:layout_constraintStart_toEndOf="@+id/victims_edit_cod4"
             app:layout_constraintTop_toTopOf="@+id/textView7" />
@@ -193,7 +194,7 @@
             android:id="@+id/victims_txt_total"
             style="@style/VictimsTxtCode"
             android:layout_marginStart="8dp"
-            android:hint="000"
+            android:textStyle="bold"
             android:maxLength="3"
             app:layout_constraintBottom_toBottomOf="@+id/textView8"
             app:layout_constraintStart_toEndOf="@+id/textView8"

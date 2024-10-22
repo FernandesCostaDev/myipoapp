@@ -1,5 +1,6 @@
 package com.example.myipoapp.main.view.main.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -24,7 +25,37 @@ class ResourcesActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.brasao_bombeiro_p)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        replaceFragment(ResourcesFragment())
+        val returnCity = intent.getStringExtra("city")
+        val returnStreet = intent.getStringExtra("street")
+        val returnNeighborhood = intent.getStringExtra("neighborhood")
+        val returnComplement = intent.getStringExtra("complement")
+        val returnDate = intent.getStringExtra("date")
+        val returnTime = intent.getStringExtra("time")
+        val returnNature = intent.getStringExtra("nature")
+        val returnSubNature = intent.getStringExtra("subNature")
+        val returnCrbm = intent.getStringExtra("crbm")
+        val returnObm = intent.getStringExtra("obm")
+        val returnFireman = intent.getStringExtra("fireman")
+
+        val fragment = ResourcesFragment()
+        val bundle = Bundle()
+        bundle.putString("city", returnCity)
+        bundle.putString("street", returnStreet)
+        bundle.putString("neighborhood", returnNeighborhood)
+        bundle.putString("complement", returnComplement)
+        bundle.putString("date", returnDate)
+        bundle.putString("time", returnTime)
+        bundle.putString("nature", returnNature)
+        bundle.putString("subNature", returnSubNature)
+        bundle.putString("crbm", returnCrbm)
+        bundle.putString("obm", returnObm)
+        bundle.putString("fireman", returnFireman)
+        fragment.arguments = bundle
+        replaceFragment(fragment)
+
+
+
+
 
         with(binding) {
             resourcesBottomNav.setOnItemSelectedListener { item ->
@@ -48,6 +79,7 @@ class ResourcesActivity : AppCompatActivity() {
                     else -> false
                 }
             }
+
         }
     }
     private fun replaceFragment(fragment: Fragment) {

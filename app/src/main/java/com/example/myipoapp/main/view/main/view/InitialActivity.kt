@@ -1,5 +1,4 @@
 package com.example.myipoapp.main.view.main.view
-
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
@@ -13,7 +12,6 @@ import com.example.myipoapp.R
 import com.example.myipoapp.databinding.ActivityInitialBinding
 import com.example.myipoapp.main.view.common.util.TxtWatcher
 import java.util.Calendar
-
 class InitialActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInitialBinding
 
