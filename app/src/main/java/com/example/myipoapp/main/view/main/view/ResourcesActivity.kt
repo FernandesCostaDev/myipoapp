@@ -53,10 +53,6 @@ class ResourcesActivity : AppCompatActivity() {
         fragment.arguments = bundle
         replaceFragment(fragment)
 
-
-
-
-
         with(binding) {
             resourcesBottomNav.setOnItemSelectedListener { item ->
                 when (item.itemId) {

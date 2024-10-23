@@ -63,7 +63,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "2º GB Ponta Grossa" -> {
                         cbActivated = resources.getStringArray(R.array.gbPontaGrossa)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -73,7 +73,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "3º GB Londrina" -> {
                         cbActivated = resources.getStringArray(R.array.gbLondrina)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -83,7 +83,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "4º GB Cascavel" -> {
                         cbActivated = resources.getStringArray(R.array.gbCascavel)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -93,7 +93,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "5º GB Maringá" -> {
                         cbActivated = resources.getStringArray(R.array.gbMaringa)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -103,7 +103,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "6º GB São José dos Pinhais" -> {
                         cbActivated = resources.getStringArray(R.array.gbSaoJosePinhais)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -113,7 +113,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "7º GB Colombo" -> {
                         cbActivated = resources.getStringArray(R.array.gbColombo)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -123,7 +123,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "8º GB Paranaguá" -> {
                         cbActivated = resources.getStringArray(R.array.gbParanaguá)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -133,7 +133,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "9º GB Foz do Iguaçu" -> {
                         cbActivated = resources.getStringArray(R.array.gbFozIguaçu)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -143,7 +143,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "10º GB Francisco Beltrão" -> {
                         cbActivated = resources.getStringArray(R.array.gbFrancisco)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -164,7 +164,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "12º GB Guarapuava" -> {
                         cbActivated = resources.getStringArray(R.array.gbGuarapuava)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -174,7 +174,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "13º GB Pato Branco" -> {
                         cbActivated = resources.getStringArray(R.array.gbPatoBranco)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -184,7 +184,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "1º SGBI Ivaiporã" -> {
                         cbActivated = resources.getStringArray(R.array.sgbiIvaipora)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -194,7 +194,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "6º SGBI Umuarama" -> {
                         cbActivated = resources.getStringArray(R.array.sgbiUmuarama)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -204,7 +204,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "7º SGBI Santo Antonio da Platina" -> {
                         cbActivated = resources.getStringArray(R.array.sgbiSap)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -214,7 +214,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "8º SGBI Cianorte" -> {
                         cbActivated = resources.getStringArray(R.array.sgbiCianorte)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -224,7 +224,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "9º SGBI Paranavaí" -> {
                         cbActivated = resources.getStringArray(R.array.sgbiParanavai)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -234,7 +234,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
                     "10º SGBI Irati" -> {
                         cbActivated = resources.getStringArray(R.array.sgbiIrati)
-                        ArrayAdapter(
+                        adapterCbActivated = ArrayAdapter(
                             requireContext(),
                             android.R.layout.simple_list_item_1,
                             cbActivated
@@ -299,7 +299,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
         private val selectedItems = mutableSetOf<Vehicles>()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehiclesViewHolder {
-            // Corrigido layoutInflater
+
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.checkbox_vehicles, parent, false)
             return VehiclesViewHolder(view)
@@ -326,16 +326,14 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
                 checkBox.text = item.prefix
                 checkBox.isChecked = selectedItems.contains(item)
 
-                // Limpa qualquer listener anterior
+
                 checkBox.setOnCheckedChangeListener(null)
 
                 checkBox.setOnCheckedChangeListener { _, isChecked ->
                     if (isChecked) {
                         if (selectedItems.size < 5) {
-                            // Adiciona o item se o número de selecionados for menor que 5
                             selectedItems.add(item)
                         } else {
-                            // Não permite marcar o CheckBox se já houver 5 selecionados
                             checkBox.isChecked = false
 
                             Toast.makeText(
@@ -345,11 +343,11 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
                             ).show()
                         }
                     } else {
-                        // Remove o item da seleção se desmarcado
+
                         selectedItems.remove(item)
                     }
 
-                    // Atualiza o TextView com os veículos selecionados
+
                     updateTextView()
                 }
             }

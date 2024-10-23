@@ -72,18 +72,23 @@
     <style name="textInputLayout">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@drawable/base_background</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
         <item name="counterEnabled">true</item>
         <item name="counterMaxLength">400</item>
         <item name="errorEnabled">true</item>
-        <item name="layout_constraintEnd_toEndOf">parent</item>
-        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="helperTextTextColor">@color/red</item>
     </style>
 
     <style name="textInputEditText">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">150dp</item>
         <item name="android:gravity">top</item>
+        <item name="android:maxLength">401</item>
         <item name="android:inputType">textMultiLine</item>
     </style>
 

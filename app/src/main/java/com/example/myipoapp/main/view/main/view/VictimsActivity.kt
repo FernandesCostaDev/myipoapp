@@ -5,14 +5,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myipoapp.R
 import com.example.myipoapp.databinding.ActivityVictimsBinding
 
 class VictimsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVictimsBinding
-
     private var selectedOption: String? = null
 
     private var unharmed: Int = 0
@@ -65,6 +63,7 @@ class VictimsActivity : AppCompatActivity() {
 
                         victimsButtonNext.setOnClickListener {
                             val intent = Intent(this@VictimsActivity, OtherInformationActivity::class.java)
+
                             intent.putExtra("unharmed", unharmed)
                             intent.putExtra("code1", code1)
                             intent.putExtra("code2", code2)
@@ -72,16 +71,20 @@ class VictimsActivity : AppCompatActivity() {
                             intent.putExtra("code4", code4)
                             intent.putExtra("total", total)
                             intent.putExtra("obsVictims", obsVictims)
+
                             intent.putExtra("cb", returnCb)
                             intent.putExtra("number", returnNumber)
                             intent.putExtra("vehicles", returnVehicles)
+
                             intent.putExtra("fireman", returnFireman)
                             intent.putExtra("crbm", returnCrbm)
                             intent.putExtra("obm", returnObm)
+
                             intent.putExtra("date", returnDate)
                             intent.putExtra("time", returnTime)
                             intent.putExtra("nature", returnNature)
                             intent.putExtra("subNature", returnSubNature)
+
                             intent.putExtra("city", returnCity)
                             intent.putExtra("street", returnStreet)
                             intent.putExtra("neighborhood", returnNeighborhood)
@@ -95,24 +98,52 @@ class VictimsActivity : AppCompatActivity() {
                         victimsButtonNext.isEnabled =
                             false
                         victimsButtonNext.setOnClickListener {
-                            val intent = Intent(this@VictimsActivity, OtherInformationActivity::class.java)
+                            unharmed = binding.victimsEditUnharmed.text.toString().toIntOrNull() ?: 0
+                            code1 = binding.victimsEditCode1.text.toString().toIntOrNull() ?: 0
+                            code2 = binding.victimsEditCod2.text.toString().toIntOrNull() ?: 0
+                            code3 = binding.victimsEditCod3.text.toString().toIntOrNull() ?: 0
+                            code4 = binding.victimsEditCod4.text.toString().toIntOrNull() ?: 0
+                            obsVictims = binding.victimsEditObs.text.toString()
 
+                            val intent = Intent(this@VictimsActivity, OtherInformationActivity::class.java)
+                            intent.putExtra("unharmed", unharmed)
+                            intent.putExtra("code1", code1)
+                            intent.putExtra("code2", code2)
+                            intent.putExtra("code3", code3)
+                            intent.putExtra("code4", code4)
+                            intent.putExtra("total", total)
+                            intent.putExtra("obsVictims", obsVictims)
+
+                            intent.putExtra("cb", returnCb)
+                            intent.putExtra("number", returnNumber)
+                            intent.putExtra("vehicles", returnVehicles)
+
+                            intent.putExtra("fireman", returnFireman)
+                            intent.putExtra("crbm", returnCrbm)
+                            intent.putExtra("obm", returnObm)
+
+                            intent.putExtra("date", returnDate)
+                            intent.putExtra("time", returnTime)
+                            intent.putExtra("nature", returnNature)
+                            intent.putExtra("subNature", returnSubNature)
+
+                            intent.putExtra("city", returnCity)
+                            intent.putExtra("street", returnStreet)
+                            intent.putExtra("neighborhood", returnNeighborhood)
+                            intent.putExtra("complement", returnComplement)
                             startActivity(intent)
                         }
                     }
-
                     else -> {
                         victimsButtonNext.isEnabled = false
                     }
                 }
             }
-
             victimsEditUnharmed.addTextChangedListener(watcher)
             victimsEditCode1.addTextChangedListener(watcher)
             victimsEditCod2.addTextChangedListener(watcher)
             victimsEditCod3.addTextChangedListener(watcher)
             victimsEditCod4.addTextChangedListener(watcher)
-
         }
     }
 
