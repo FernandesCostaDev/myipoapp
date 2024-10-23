@@ -103,7 +103,7 @@ class VictimsActivity : AppCompatActivity() {
                             code2 = binding.victimsEditCod2.text.toString().toIntOrNull() ?: 0
                             code3 = binding.victimsEditCod3.text.toString().toIntOrNull() ?: 0
                             code4 = binding.victimsEditCod4.text.toString().toIntOrNull() ?: 0
-                            obsVictims = binding.victimsEditObs.text.toString()
+                            obsVictims = binding.victimsEditObs.text.toString().ifEmpty { "Não informado." }
 
                             val intent = Intent(this@VictimsActivity, OtherInformationActivity::class.java)
                             intent.putExtra("unharmed", unharmed)

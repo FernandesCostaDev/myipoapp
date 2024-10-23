@@ -40,31 +40,7 @@ class SupportAgencyActivity : AppCompatActivity() {
         val returnUnfolding = intent.getStringExtra("unfolding")
 
         with(binding){
-            textview1.text = returnFireman
-            textview2.text = returnCrbm
-            textview3.text = returnObm
-            textview4.text = returnDate
-            textview5.text = returnTime
-            textview6.text = returnNature
-            textview8.text = returnSubNature
-            textview9.text = returnCity
-            textview10.text = returnStreet
-            textview11.text = returnNeighborhood
-            textview12.text = returnComplement
-            textview13.text = returnCb
-            textview14.text = returnNumber
-            textview15.text = returnVehicles
-            textview16.text = returnUnharmed.toString()
-            textview17.text = returnCode1.toString()
-            textview18.text = returnCode2.toString()
-            textview19.text = returnCode3.toString()
-            textview20.text = returnCode4.toString()
-            textview21.text = returnTotal.toString()
-            textview22.text = returnObsVictims
-            textview23.text = returnEnvironment
-            textview24.text = returnProperty
-            textview25.text = returnScenery
-            textview26.text = returnUnfolding
+
         }
     }
 }

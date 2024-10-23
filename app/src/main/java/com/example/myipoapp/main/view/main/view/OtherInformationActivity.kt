@@ -81,9 +81,9 @@ class OtherInformationActivity : AppCompatActivity() {
             }
 
             otherInformationButtonNext.setOnClickListener {
-                val environment = otherInformationTextFiledEnvironment.text.toString()?:"Não Informado."
-                val property = otherInformationTextFiledProperty.text.toString()?:"Não Informado."
-                val scenery = otherInformationTextFiledScenery.text.toString()?:"Não Informado."
+                val environment = otherInformationTextFiledEnvironment.text.toString().ifEmpty { "Não Informado." }
+                val property = otherInformationTextFiledProperty.text.toString().ifEmpty { "Não Informado." }
+                val scenery = otherInformationTextFiledScenery.text.toString().ifEmpty { "Não Informado." }
                 val unfolding = otherInformationTextFiledUnfolding.text.toString()
 
                 val intent = Intent(this@OtherInformationActivity, SupportAgencyActivity::class.java)
