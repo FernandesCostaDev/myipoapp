@@ -71,5 +71,41 @@
     <string name="required_field">Campo obrigatório</string>
     <string name="optional_field">Campo opcional</string>
 
+    <string name="label_aeronautica">Aeronáutica</string>
+    <string name="label_bombeiroPrivado">Bombeiro Privado</string>
+    <string name="label_ciaAgua">CIA de Água e Esgoto</string>
+    <string name="label_BpmoaPmpr">BPMOA/PMPR</string>
+    <string name="label_CiaEnergia">CIA de Energia Elétrica</string>
+    <string name="label_CbOutroEstado">CB de Outro Estado</string>
+    <string name="label_DefesaCivil">Defesa Civil (Casa Militar)</string>
+    <string name="label_DefesaCivilCompdec">Defesa Civil (COMPDEC)</string>
+    <string name="label_ConcessionariaRodovia">Concessionária da Rodovia</string>
+    <string name="label_crea">CREA</string>
+    <string name="label_DerDnit">DER/DNIT</string>
+    <string name="label_exercito">Exército</string>
+    <string name="label_FiscalizacaoMunicipal">Fiscalização de Trânsito Municipal</string>
+    <string name="label_GuardaMunicipal">Guarda Municipal</string>
+    <string name="label_GuardaPortuaria">Guarda Portuária</string>
+    <string name="label_iap">IAP</string>
+    <string name="label_ibama">IBAMA</string>
+    <string name="label_iml">IML</string>
+    <string name="label_instituicaoPrivada">Instituição Privada</string>
+    <string name="label_InstituicaoPublica">Instituição Pública</string>
+    <string name="label_marinha">Marinha</string>
+    <string name="label_pmpr">PMPR</string>
+    <string name="label_policiaCientifica">Polícia Científica Paraná</string>
+    <string name="label_polIciaCivil">Polícia Civil</string>
+    <string name="label_policiaFederal">Polícia Federal</string>
+    <string name="label_policiaFlorestal">Polícia Florestal</string>
+    <string name="label_policiaMilitarOutroEstado">Polícia Militar de Outro Estado</string>
+    <string name="label_policiaRodoviariaFederal">Polícia Rodoviária Federal</string>
+    <string name="label_receitaEstadual">Receita Estadual</string>
+    <string name="label_vigilinciaSanitaria">Vigilância Sanitária Municipal</string>
+    <string name="label_vigilinciaSanitariaEstadual">Vigilância Sanitária Estadual</string>
+    <string name="label_policiaRodoviariaEstadual">Polícia Rodoviária Estadual</string>
+    <string name="label_prefeituraMunicipal">Prefeitura Municipal</string>
+    <string name="label_samu">SAMU</string>
+    <string name="summary_txt_msg">Selecione o orgão</string>
+
 
 </resources>

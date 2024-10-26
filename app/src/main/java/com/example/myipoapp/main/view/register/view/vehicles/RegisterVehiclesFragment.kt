@@ -2,7 +2,6 @@ package com.example.myipoapp.main.view.register.view.vehicles
 
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -13,11 +12,7 @@ import com.example.myipoapp.R
 import com.example.myipoapp.databinding.FragmentRegisterVehiclesBinding
 import com.example.myipoapp.main.view.common.util.TxtWatcher
 import com.example.myipoapp.main.view.database.App
-import com.example.myipoapp.main.view.database.users.User
 import com.example.myipoapp.main.view.database.vehicles.Vehicles
-import com.example.myipoapp.main.view.main.view.MainActivity
-import com.example.myipoapp.main.view.main.view.ResourcesActivity
-
 
 class RegisterVehiclesFragment : Fragment(R.layout.fragment_register_vehicles) {
     private var binding: FragmentRegisterVehiclesBinding? = null
@@ -57,33 +52,14 @@ class RegisterVehiclesFragment : Fragment(R.layout.fragment_register_vehicles) {
 
                 registerVehiclesButtonSave.setOnClickListener {
                     val type = registerVehiclesAutoType.text.toString()
-
                     when (type) {
-                        "ABTR:" -> {
-                            cod = 1
-                        }
-
-                        "AA:" -> {
-                            cod = 2
-                        }
-
-                        "ABS:" -> {
-                            cod = 3
-                        }
-
-                        "ABT:" -> {
-                            cod = 4
-                        }
-
-                        "AT:" -> {
-                            cod = 5
-                        }
-
-                        "ATP:" -> {
-                            cod = 6
-                        }
+                        "ABTR:" -> cod = 1
+                        "AA:" -> cod = 2
+                        "ABS:" -> cod = 3
+                        "ABT:" -> cod = 4
+                        "AT:" -> cod = 5
+                        "ATP:" -> cod = 6
                     }
-
                     Thread {
                         val app = requireActivity().application as App.App
                         val dao = app.db.vehiclesDao()
@@ -95,11 +71,9 @@ class RegisterVehiclesFragment : Fragment(R.layout.fragment_register_vehicles) {
                         )
                         requireActivity().runOnUiThread {
                             Toast.makeText(requireContext(), "Dados salvo com sucesso! \uD83E\uDDD1\u200D\uD83D\uDE92", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(requireContext(), ResourcesActivity::class.java)
-                            startActivity(intent)
+                            requireActivity().supportFragmentManager.popBackStack()
                         }
                     }.start()
-
                 }
             }
         }

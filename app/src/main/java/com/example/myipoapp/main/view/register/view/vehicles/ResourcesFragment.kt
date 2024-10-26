@@ -1,5 +1,6 @@
 package com.example.myipoapp.main.view.register.view.vehicles
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,15 +11,16 @@ import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myipoapp.R
 import com.example.myipoapp.databinding.FragmentResourcesBinding
+import com.example.myipoapp.main.view.common.util.ResourcesViewModel
 import com.example.myipoapp.main.view.common.util.TxtWatcher
 import com.example.myipoapp.main.view.database.App
 import com.example.myipoapp.main.view.database.vehicles.Vehicles
 import com.example.myipoapp.main.view.main.view.VictimsActivity
-
 
 class ResourcesFragment : Fragment(R.layout.fragment_resources) {
     private var binding: FragmentResourcesBinding? = null
@@ -26,12 +28,17 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
     private lateinit var adapter: AdapterVehicles
     private lateinit var rv: RecyclerView
     private lateinit var txtVehicles: TextView
-    private lateinit var cbActivated: Array<String>
+
     private lateinit var adapterCbActivated: ArrayAdapter<String>
+    private lateinit var viewModel: ResourcesViewModel
+
+    @SuppressLint("NotifyDataSetChanged")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentResourcesBinding.bind(view)
+
+        viewModel = ViewModelProvider(requireActivity()).get(ResourcesViewModel::class.java)
 
         val returnFireman = arguments?.getString("fireman")
         val returnCrbm = arguments?.getString("crbm")
@@ -47,200 +54,34 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
         this.list = mutableListOf<Vehicles>()
 
+        viewModel.cbActivatedData.observe(viewLifecycleOwner) { cbActivated ->
+            adapterCbActivated =
+                ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, cbActivated)
+            binding?.resourcesAutoCb?.setAdapter(adapterCbActivated)
+        }
+
         binding?.let {
             with(it) {
                 when (returnObm) {
-                    "1º GB Curitiba" -> {
-                        cbActivated = resources.getStringArray(R.array.gbCuritiba)
-                        adapterCbActivated =
-                            ArrayAdapter(
-                                requireContext(),
-                                android.R.layout.simple_list_item_1,
-                                cbActivated
-                            )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "2º GB Ponta Grossa" -> {
-                        cbActivated = resources.getStringArray(R.array.gbPontaGrossa)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "3º GB Londrina" -> {
-                        cbActivated = resources.getStringArray(R.array.gbLondrina)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "4º GB Cascavel" -> {
-                        cbActivated = resources.getStringArray(R.array.gbCascavel)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "5º GB Maringá" -> {
-                        cbActivated = resources.getStringArray(R.array.gbMaringa)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "6º GB São José dos Pinhais" -> {
-                        cbActivated = resources.getStringArray(R.array.gbSaoJosePinhais)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "7º GB Colombo" -> {
-                        cbActivated = resources.getStringArray(R.array.gbColombo)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "8º GB Paranaguá" -> {
-                        cbActivated = resources.getStringArray(R.array.gbParanaguá)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "9º GB Foz do Iguaçu" -> {
-                        cbActivated = resources.getStringArray(R.array.gbFozIguaçu)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "10º GB Francisco Beltrão" -> {
-                        cbActivated = resources.getStringArray(R.array.gbFrancisco)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "11º GB Apucarana" -> {
-                        cbActivated = resources.getStringArray(R.array.gbApucarana)
-                        adapterCbActivated =
-                            ArrayAdapter(
-                                requireContext(),
-                                android.R.layout.simple_list_item_1,
-                                cbActivated
-                            )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "12º GB Guarapuava" -> {
-                        cbActivated = resources.getStringArray(R.array.gbGuarapuava)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "13º GB Pato Branco" -> {
-                        cbActivated = resources.getStringArray(R.array.gbPatoBranco)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "1º SGBI Ivaiporã" -> {
-                        cbActivated = resources.getStringArray(R.array.sgbiIvaipora)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "6º SGBI Umuarama" -> {
-                        cbActivated = resources.getStringArray(R.array.sgbiUmuarama)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "7º SGBI Santo Antonio da Platina" -> {
-                        cbActivated = resources.getStringArray(R.array.sgbiSap)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "8º SGBI Cianorte" -> {
-                        cbActivated = resources.getStringArray(R.array.sgbiCianorte)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "9º SGBI Paranavaí" -> {
-                        cbActivated = resources.getStringArray(R.array.sgbiParanavai)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
-
-                    "10º SGBI Irati" -> {
-                        cbActivated = resources.getStringArray(R.array.sgbiIrati)
-                        adapterCbActivated = ArrayAdapter(
-                            requireContext(),
-                            android.R.layout.simple_list_item_1,
-                            cbActivated
-                        )
-                        resourcesAutoCb.setAdapter(adapterCbActivated)
-                    }
+                    "1º GB Curitiba" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbCuritiba)
+                    "2º GB Ponta Grossa" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbPontaGrossa)
+                    "3º GB Londrina" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbLondrina)
+                    "4º GB Cascavel" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbCascavel)
+                    "5º GB Maringá" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbMaringa)
+                    "6º GB São José dos Pinhais" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbSaoJosePinhais)
+                    "7º GB Colombo" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbColombo)
+                    "8º GB Paranaguá" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbParanaguá)
+                    "9º GB Foz do Iguaçu" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbFozIguaçu)
+                    "10º GB Francisco Beltrão" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbFrancisco)
+                    "11º GB Apucarana" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbApucarana)
+                    "12º GB Guarapuava" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbGuarapuava)
+                    "13º GB Pato Branco" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.gbPatoBranco)
+                    "1º SGBI Ivaiporã" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.sgbiIvaipora)
+                    "6º SGBI Umuarama" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.sgbiUmuarama)
+                    "7º SGBI Santo Antonio da Platina" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.sgbiSap)
+                    "8º SGBI Cianorte" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.sgbiCianorte)
+                    "9º SGBI Paranavaí" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.sgbiParanavai)
+                    "10º SGBI Irati" -> viewModel.cbActivatedData.value = resources.getStringArray(R.array.sgbiIrati)
                 }
 
                 txtVehicles = resourcesTxtVehicles
@@ -256,6 +97,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
                     val result = dao.query()
 
                     requireActivity().runOnUiThread {
+                        list.clear()
                         list.addAll(result)
                         adapter.notifyDataSetChanged()
                     }
@@ -326,7 +168,6 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
                 checkBox.text = item.prefix
                 checkBox.isChecked = selectedItems.contains(item)
 
-
                 checkBox.setOnCheckedChangeListener(null)
 
                 checkBox.setOnCheckedChangeListener { _, isChecked ->
@@ -347,14 +188,9 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
                         selectedItems.remove(item)
                     }
 
-
                     updateTextView()
                 }
             }
-        }
-
-        fun getSelectedItems(): List<Vehicles> {
-            return selectedItems.toList()
         }
 
         private fun updateTextView() {

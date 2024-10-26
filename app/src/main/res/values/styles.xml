@@ -92,5 +92,13 @@
         <item name="android:inputType">textMultiLine</item>
     </style>
 
+    <style name="ckb">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 
 </resources>
