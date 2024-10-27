@@ -40,8 +40,8 @@ Planejamos incluir funcionalidades adicionais, como:
 - 🌐 Integração com sistemas internos do Corpo de Bombeiros para consultas rápidas.
 
 ### 📚 **Referências e Recursos**
-- AGUIAR, Tiago. Curso Online Android Express. Hotmart. Disponível em: [Hotmart](https://hotmart.com/pt-br/marketplace/produtos/android-developer-express/Q15139042B?    sck=HOTMART_SITE&search=ce09551b-1af5-442f-bf55-83c64013fdac&hotfeature=33). Acesso em: 19 mar. 2024.
-- DEITEL, Paul; DEITEL, Harvey; DEITEL, Abbey. *Android: como programar* [recurso eletrônico] / tradução: João Eduardo Nóbrega Tortello. 2ª ed. Porto Alegre: Bookman, 2015.
+- [AGUIAR, Tiago. Curso Online Android Express. Hotmart.] Disponível em: [Hotmart](https://hotmart.com/pt-br/marketplace/produtos/android-developer-express/Q15139042B?    sck=HOTMART_SITE&search=ce09551b-1af5-442f-bf55-83c64013fdac&hotfeature=33). Acesso em: 19 mar. 2024.
+- [DEITEL, Paul; DEITEL, Harvey; DEITEL, Abbey. *Android: como programar*] [recurso eletrônico] / tradução: João Eduardo Nóbrega Tortello. 2ª ed. Porto Alegre: Bookman, 2015.
 - [MVP - Model View Presenter - DevMedia](https://www.devmedia.com.br/mvp-model-view-presenter-revista-net-magazine-100/26318)
 - [Tutorial sobre PDFs Dinâmicos no Android](https://medium.com/@meet30997/creating-dynamic-pdf-documents-with-android-step-by-step-tutorial-for-dynamic-pdfs-5e15fdd92bb7)
 
