@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue2"
@@ -23,15 +22,346 @@
         app:titleTextColor="@color/white"
         tools:ignore="RtlSymmetry" />
 
+    <TextView
+        android:id="@+id/textView26"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Confira as informações abaixo para gerar o PDF"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summary_toolbar" />
 
-
-    <Button
-        android:id="@+id/victims_button_next"
-        style="@style/Theme.MyIPOApp.ButtonMain"
-        android:enabled="false"
-        android:text="Gerar PDF"
+    <ScrollView
+        android:id="@+id/summary_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/base_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/summary_txt_crbm"
+                style="@style/textView1_summary"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/summary_txt_obm"
+                style="@style/textView1_summary"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <LinearLayout
+                style="@style/linearLayout1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/textView2_summary"
+                    android:text="@string/summary_txt_responsible" />
+
+                <TextView
+                    android:id="@+id/summary_txt_fireman"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/TextView3"
+                    style="@style/textView2_summary"
+                    android:text="@string/label_data" />
+
+                <TextView
+                    android:id="@+id/summary_txt_date"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/TextView4"
+                    style="@style/textView2_summary"
+                    android:text="@string/label_horas" />
+
+                <TextView
+                    android:id="@+id/summary_txt_time"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/TextView5"
+                    style="@style/textView2_summary"
+                    android:text="@string/label_natureza" />
+
+                <TextView
+                    android:id="@+id/summary_txt_nature"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/textView2_summary"
+                    android:text="@string/label_SubNatureza" />
+
+                <TextView
+                    android:id="@+id/summary_txt__subNature"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout2">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    style="@style/textView2_summary"
+                    android:text="@string/label_cidade" />
+
+                <TextView
+                    android:id="@+id/summary_txt__city"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/textView2_summary"
+                    android:text="@string/label_bairro" />
+
+                <TextView
+                    android:id="@+id/summary_txt_neighborhood"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    style="@style/textView2_summary"
+                    android:text="@string/label_logradouro" />
+
+                <TextView
+                    android:id="@+id/summary_txt_street"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    style="@style/textView2_summary"
+                    android:text="@string/label_complemento" />
+
+                <TextView
+                    android:id="@+id/summary_txt_complement"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout2">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    style="@style/textView2_summary"
+                    android:text="@string/label_CbAcionado" />
+
+                <TextView
+                    android:id="@+id/summary_txt_cb"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    style="@style/textView2_summary"
+                    android:text="@string/n_bms" />
+
+                <TextView
+                    android:id="@+id/summary_txt_numbersBms"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/linearLayout1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    style="@style/textView2_summary"
+                    android:text="@string/vtrs_empenhadas" />
+
+                <TextView
+                    android:id="@+id/summary_txt_vehicles"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout2">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    style="@style/textView2_summary"
+                    android:text="@string/vitIlesa" />
+
+                <TextView
+                    android:id="@+id/summary_txt_unharmed"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    style="@style/textView2_summary"
+                    android:text="@string/cod1" />
+
+                <TextView
+                    android:id="@+id/summary_txt_code1"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/textView17"
+                    style="@style/textView2_summary"
+                    android:text="@string/cod2" />
+
+                <TextView
+                    android:id="@+id/summary_txt_code2"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/textView18"
+                    style="@style/textView2_summary"
+                    android:text="@string/cod3" />
+
+                <TextView
+                    android:id="@+id/summary_txt_code3"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/textView19"
+                    style="@style/textView2_summary"
+                    android:text="@string/cod4" />
+
+                <TextView
+                    android:id="@+id/summary_txt_code4"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayout1">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    style="@style/textView2_summary"
+                    android:text="@string/totalVitimas" />
+
+                <TextView
+                    android:id="@+id/summary_txt_total"
+                    style="@style/textView2_summary" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView25"
+                style="@style/textView2_summary"
+                android:layout_marginTop="8dp"
+                android:text="@string/label_obsVitima" />
+
+            <TextView
+                android:id="@+id/summary_txt_obs"
+                style="@style/descritivo1" />
+
+            <TextView
+                android:id="@+id/textView20"
+                style="@style/textView2_summary"
+                android:layout_marginTop="24dp"
+                android:text="@string/label_danosAmbiente" />
+
+            <TextView
+                android:id="@+id/summary_txt_environment"
+                style="@style/descritivo1" />
+
+            <TextView
+                android:id="@+id/textView21"
+                style="@style/textView2_summary"
+                android:layout_marginTop="24dp"
+                android:text="@string/label_danosPropriedade" />
+
+            <TextView
+                android:id="@+id/summary_txt_property"
+                style="@style/descritivo1" />
+
+            <TextView
+                android:id="@+id/textView22"
+                style="@style/textView2_summary"
+                android:layout_marginTop="24dp"
+                android:text="@string/label_cenario" />
+
+            <TextView
+                android:id="@+id/summary_txt_scenery"
+                style="@style/descritivo1" />
+
+            <TextView
+                android:id="@+id/textView23"
+                style="@style/textView2_summary"
+                android:layout_marginTop="24dp"
+                android:text="@string/label_desdobramento" />
+
+            <TextView
+                android:id="@+id/summary_txt_unfolding"
+                style="@style/descritivo1" />
+
+            <TextView
+                android:id="@+id/textView24"
+                style="@style/textView2_summary"
+                android:layout_marginTop="24dp"
+                android:text="@string/summary_txt_support" />
+
+            <TextView
+                android:id="@+id/summary_txt_support"
+                android:layout_marginBottom="60dp"
+                style="@style/descritivo1" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/summary_button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:enabled="false"
+        android:src="@drawable/baseline_picture_as_pdf_24"
+        app:backgroundTint="@color/button_background"
+        app:tint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/summary_toolbar"
+        app:layout_constraintVertical_bias="0.95" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

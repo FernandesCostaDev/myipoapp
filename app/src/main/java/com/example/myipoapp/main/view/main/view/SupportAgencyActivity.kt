@@ -1,5 +1,6 @@
 package com.example.myipoapp.main.view.main.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
@@ -85,6 +86,40 @@ class SupportAgencyActivity : AppCompatActivity() {
                     updateTextView()
                 }
             }
+
+            supportButtonNext.setOnClickListener {
+                val listSupport = supportTxtListSupport.text.toString()
+                val intent = Intent(this@SupportAgencyActivity, SummaryActivity::class.java)
+                intent.putExtra("fireman", returnFireman)
+                intent.putExtra("crbm", returnCrbm)
+                intent.putExtra("obm", returnObm)
+                intent.putExtra("date", returnDate)
+                intent.putExtra("time", returnTime)
+                intent.putExtra("nature", returnNature)
+                intent.putExtra("subNature", returnSubNature)
+                intent.putExtra("city", returnCity)
+                intent.putExtra("street", returnStreet)
+                intent.putExtra("neighborhood", returnNeighborhood)
+                intent.putExtra("complement", returnComplement)
+                intent.putExtra("cb", returnCb)
+                intent.putExtra("number", returnNumber)
+                intent.putExtra("vehicles", returnVehicles)
+                intent.putExtra("unharmed", returnUnharmed)
+                intent.putExtra("code1", returnCode1)
+                intent.putExtra("code2", returnCode2)
+                intent.putExtra("code3", returnCode3)
+                intent.putExtra("code4", returnCode4)
+                intent.putExtra("total", returnTotal)
+                intent.putExtra("obsVictims", returnObsVictims)
+                intent.putExtra("environment", returnEnvironment)
+                intent.putExtra("property", returnProperty)
+                intent.putExtra("scenery", returnScenery)
+                intent.putExtra("unfolding", returnUnfolding)
+                intent.putExtra("listSupport", listSupport)
+
+                startActivity(intent)
+            }
+
         }
     }
 

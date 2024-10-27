@@ -107,5 +107,47 @@
     <string name="label_samu">SAMU</string>
     <string name="summary_txt_msg">Selecione o orgão</string>
 
+    <string name="label_data">Data:</string>
+    <string name="label_horas">Horas:</string>
+    <string name="label_natureza">Natureza:</string>
+    <string name="label_SubNatureza">Sub natureza:</string>
+    <string name="del_usuario">Excluir Usuário</string>
+    <string name="label_nome">Nome:</string>
+    <string name="label_graduacao">Graduação:</string>
+    <string name="label_crbm">CRBM:</string>
+    <string name="label_obm">OBM:</string>
+    <string name="label_cidade">Cidade:</string>
+    <string name="label_logradouro">Logradouro:</string>
+    <string name="label_bairro">Bairro:</string>
+    <string name="label_cbAcionado">CB/PBC: Acionado</string>
+    <string name="label_CbAcionado">CB Acionado:</string>
+    <string name="label_complemento">Complemento:</string>
+    <string name="label_abtr">ABTR:</string>
+    <string name="label_aa">AA:</string>
+    <string name="label_abs">ABS:</string>
+    <string name="label_abt">ABT:</string>
+    <string name="label_vtrComplementar">Viatura complementar:</string>
+    <string name="label_selecaoVtr">Selecione a viatura abaixo ou clique e segure no ícone da lixeira para excluí-la.</string>
+    <string name="label_selectVtr">Selecione as viaturas empenhadas:</string>
+    <string name="label_efetivoEmpenhado">Número de BMs empenhados:</string>
+    <string name="n_bms">nº de BMs:</string>
+    <string name="totalVitimas">Total de vítimas:</string>
+    <string name="vtrs_empenhadas">Viaturas empenhadas:</string>
+    <string name="cod1">Cód 1:</string>
+    <string name="cod2">Cód 2:</string>
+    <string name="cod3">Cód 3:</string>
+    <string name="cod4">Cód 4:</string>
+    <string name="vitIlesa">Vitimas Ilesas:</string>
+    <string name="label_obsVitima">Observação da Vítima</string>
+    <string name="label_desdobramento">Desdobramento</string>
+    <string name="label_cenario">Cenário</string>
+    <string name="label_danosPropriedade">Danos a Propriedade</string>
+    <string name="label_danosAmbiente">Danos ao Meio Ambiente</string>
+    <string name="summary_txt_support">Apoio</string>
+    <string name="summary_txt_responsible">Responsável pelas informações:</string>
+    <string name="crbm1">1º COMANDO REGIONAL DE BOMBEIRO MILITAR - CURITIBA</string>
+    <string name="crbm2">2º COMANDO REGIONAL DE BOMBEIRO MILITAR - LONDRINA</string>
+    <string name="crbm3">3º COMANDO REGIONAL DE BOMBEIRO MILITAR - CASCAVEL</string>
+
 
 </resources>
