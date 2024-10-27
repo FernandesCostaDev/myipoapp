@@ -16,7 +16,8 @@ Desenvolver um protótipo que facilite o preenchimento do formulário IPO e, ao 
 4. **Cadastro de Quartel e Viaturas**: Escolha de quartéis e viaturas envolvidas.
 5. **Informações de Vítimas**: Registro de detalhes de vítimas (se houver).
 6. **Dados Adicionais**: Inserção de observações sobre o local e o solicitante.
-7. **Geração de PDF**: Resumo final e geração de um relatório em PDF pronto para impressão.
+7. **Seleção de órgão de apoio**: Inserção dos órgãos de apoio como PMPR, PRF, IML, Polícia Científica, etc.
+8. **Geração de PDF**: Resumo final e geração de um relatório em PDF pronto para impressão.
 
 ### ⚙️ **Tecnologias Utilizadas**
 - **Linguagem**: Kotlin
