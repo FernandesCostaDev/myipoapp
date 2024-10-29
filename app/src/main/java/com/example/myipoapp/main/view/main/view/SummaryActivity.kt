@@ -238,7 +238,7 @@ class SummaryActivity : AppCompatActivity() {
         canvas.drawText("Vítimas", 300f, 365f, label1)
 
         canvas.drawText("Total de vítimas:", 40f, 380f, label3)
-        canvas.drawText(returnTotal.toString(), 108f, 380f, label3)
+        canvas.drawText(returnTotal.toString(), 109f, 380f, label3)
 
         canvas.drawText("Vítima ilesa:", 40f, 395f, label3)
         canvas.drawText(returnUnharmed.toString(), 90f, 395f, label3)
