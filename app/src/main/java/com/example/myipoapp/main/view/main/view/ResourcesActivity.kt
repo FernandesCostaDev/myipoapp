@@ -1,7 +1,9 @@
 package com.example.myipoapp.main.view.main.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.myipoapp.R
@@ -12,9 +14,6 @@ import com.example.myipoapp.main.view.register.view.vehicles.ResourcesFragment
 
 class ResourcesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResourcesBinding
-    private lateinit var resourcesFragment: ResourcesFragment
-    private lateinit var registerVehiclesFragment: RegisterVehiclesFragment
-    private lateinit var deleteVehiclesFragment: DeleteVehiclesFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,52 +26,65 @@ class ResourcesActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.brasao_bombeiro_p)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val bundle = Bundle().apply {
-            putString("city", intent.getStringExtra("city"))
-            putString("street", intent.getStringExtra("street"))
-            putString("neighborhood", intent.getStringExtra("neighborhood"))
-            putString("complement", intent.getStringExtra("complement"))
-            putString("date", intent.getStringExtra("date"))
-            putString("time", intent.getStringExtra("time"))
-            putString("nature", intent.getStringExtra("nature"))
-            putString("subNature", intent.getStringExtra("subNature"))
-            putString("crbm", intent.getStringExtra("crbm"))
-            putString("obm", intent.getStringExtra("obm"))
-            putString("fireman", intent.getStringExtra("fireman"))
-        }
+        val returnCity = intent.getStringExtra("city")
+        val returnStreet = intent.getStringExtra("street")
+        val returnNeighborhood = intent.getStringExtra("neighborhood")
+        val returnComplement = intent.getStringExtra("complement")
+        val returnDate = intent.getStringExtra("date")
+        val returnTime = intent.getStringExtra("time")
+        val returnNature = intent.getStringExtra("nature")
+        val returnSubNature = intent.getStringExtra("subNature")
+        val returnCrbm = intent.getStringExtra("crbm")
+        val returnObm = intent.getStringExtra("obm")
+        val returnFireman = intent.getStringExtra("fireman")
 
-        resourcesFragment = ResourcesFragment().apply { arguments = bundle }
-        registerVehiclesFragment = RegisterVehiclesFragment().apply { arguments = bundle }
-        deleteVehiclesFragment = DeleteVehiclesFragment().apply { arguments = bundle }
-
-        supportFragmentManager.beginTransaction().apply {
-            add(R.id.resources_frame, resourcesFragment, "ResourcesFragment")
-            add(R.id.resources_frame, registerVehiclesFragment, "RegisterVehiclesFragment")
-            add(R.id.resources_frame, deleteVehiclesFragment, "DeleteVehiclesFragment")
-            hide(registerVehiclesFragment)
-            hide(deleteVehiclesFragment)
-        }.commit()
+        val fragment = ResourcesFragment()
+        val bundle = Bundle()
+        bundle.putString("city", returnCity)
+        bundle.putString("street", returnStreet)
+        bundle.putString("neighborhood", returnNeighborhood)
+        bundle.putString("complement", returnComplement)
+        bundle.putString("date", returnDate)
+        bundle.putString("time", returnTime)
+        bundle.putString("nature", returnNature)
+        bundle.putString("subNature", returnSubNature)
+        bundle.putString("crbm", returnCrbm)
+        bundle.putString("obm", returnObm)
+        bundle.putString("fireman", returnFireman)
+        fragment.arguments = bundle
+        replaceFragment(fragment)
 
         with(binding) {
             resourcesBottomNav.setOnItemSelectedListener { item ->
                 when (item.itemId) {
-                    R.id.menu_bottom_resources -> showFragment(resourcesFragment)
-                    R.id.menu_bottom_VehicleAdd -> showFragment(registerVehiclesFragment)
-                    R.id.menu_bottom_VehiclesDel -> showFragment(deleteVehiclesFragment)
+
+                    R.id.menu_bottom_resources -> {
+                        replaceFragment(ResourcesFragment())
+                        true
+                    }
+
+                    R.id.menu_bottom_VehicleAdd -> {
+                        replaceFragment(RegisterVehiclesFragment())
+                        true
+                    }
+
+                    R.id.menu_bottom_VehiclesDel -> {
+                        replaceFragment(DeleteVehiclesFragment())
+                        true
+                    }
+
                     else -> false
                 }
-                true
             }
+
         }
     }
-
-    private fun showFragment(fragmentToShow: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            hide(resourcesFragment)
-            hide(registerVehiclesFragment)
-            hide(deleteVehiclesFragment)
-            show(fragmentToShow)
-        }.commit()
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.resources_frame, fragment)
+        fragmentTransaction.commit()
     }
 }
+
 
