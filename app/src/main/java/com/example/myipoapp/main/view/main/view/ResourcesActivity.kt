@@ -1,9 +1,9 @@
 package com.example.myipoapp.main.view.main.view
 
-import android.content.Intent
+
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.myipoapp.R
@@ -38,7 +38,7 @@ class ResourcesActivity : AppCompatActivity() {
         val returnObm = intent.getStringExtra("obm")
         val returnFireman = intent.getStringExtra("fireman")
 
-        val fragment = ResourcesFragment()
+       /* val fragment = ResourcesFragment()
         val bundle = Bundle()
         bundle.putString("city", returnCity)
         bundle.putString("street", returnStreet)
@@ -51,8 +51,26 @@ class ResourcesActivity : AppCompatActivity() {
         bundle.putString("crbm", returnCrbm)
         bundle.putString("obm", returnObm)
         bundle.putString("fireman", returnFireman)
-        fragment.arguments = bundle
-        replaceFragment(fragment)
+        fragment.arguments = bundle*/
+
+        val sharedPreferences = getSharedPreferences("ResourcesData", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putString("city", returnCity)
+            putString("street", returnStreet)
+            putString("neighborhood", returnNeighborhood)
+            putString("complement", returnComplement)
+            putString("date", returnDate)
+            putString("time", returnTime)
+            putString("nature", returnNature)
+            putString("subNature", returnSubNature)
+            putString("crbm", returnCrbm)
+            putString("obm", returnObm)
+            putString("fireman", returnFireman)
+            apply()
+        }
+
+
+        replaceFragment(ResourcesFragment())
 
         with(binding) {
             resourcesBottomNav.setOnItemSelectedListener { item ->

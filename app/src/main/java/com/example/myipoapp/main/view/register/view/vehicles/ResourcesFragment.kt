@@ -1,6 +1,7 @@
 package com.example.myipoapp.main.view.register.view.vehicles
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -40,7 +41,7 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
 
         viewModel = ViewModelProvider(requireActivity()).get(ResourcesViewModel::class.java)
 
-        val returnFireman = arguments?.getString("fireman")
+      /*  val returnFireman = arguments?.getString("fireman")
         val returnCrbm = arguments?.getString("crbm")
         val returnObm = arguments?.getString("obm")
         val returnDate = arguments?.getString("date")
@@ -50,7 +51,20 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
         val returnCity = arguments?.getString("city")
         val returnStreet = arguments?.getString("street")
         val returnNeighborhood = arguments?.getString("neighborhood")
-        val returnComplement = arguments?.getString("complement")
+        val returnComplement = arguments?.getString("complement")*/
+
+        val sharedPreferences = requireActivity().getSharedPreferences("ResourcesData", Context.MODE_PRIVATE)
+        val returnFireman = sharedPreferences.getString("fireman", "")
+        val returnCrbm = sharedPreferences.getString("crbm", "")
+        val returnObm = sharedPreferences.getString("obm", "")
+        val returnDate = sharedPreferences.getString("date", "")
+        val returnTime = sharedPreferences.getString("time", "")
+        val returnNature = sharedPreferences.getString("nature", "")
+        val returnSubNature = sharedPreferences.getString("subNature", "")
+        val returnCity = sharedPreferences.getString("city", "")
+        val returnStreet = sharedPreferences.getString("street", "")
+        val returnNeighborhood = sharedPreferences.getString("neighborhood", "")
+        val returnComplement = sharedPreferences.getString("complement", "")
 
         this.list = mutableListOf<Vehicles>()
 
@@ -128,6 +142,10 @@ class ResourcesFragment : Fragment(R.layout.fragment_resources) {
                     intent.putExtra("crbm", returnCrbm)
                     intent.putExtra("obm", returnObm)
                     startActivity(intent)
+
+                    val sharedPreferences = requireActivity().getSharedPreferences("ResourcesData", Context.MODE_PRIVATE)
+                    sharedPreferences.edit().clear().apply()
+
                 }
             }
         }
